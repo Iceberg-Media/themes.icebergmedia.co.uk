@@ -10,6 +10,7 @@ import LandingPage from './_assets/landing-page.webp';
 import More from './_assets/more-themes.webp';
 import Portfolio from './_assets/portfolio.webp';
 import ThemeCard from './_components/ThemeCard.astro';
+import ContactForm from './_components/ContactForm.astro';
 import type { ThemeAndAuthor } from './_types/index.ts';
 
 export const prerender = false;
@@ -22,47 +23,38 @@ Astro.response.headers.set('CDN-Cache-Control', 'public, max-age=60, stale-while
 
 const pageData = {
 	seo: {
-		title: 'Themes',
-		description: 'Elevate your style with our stellar designs.',
-		image: { src: '/og/themes.jpg', alt: 'Explore the possibilities' },
+		title: 'Astro Themes | Iceberg Media',
+		description: 'Browse the best Astro themes. Free and premium. Let Iceberg Media set up and launch your site.',
+		image: { src: '/og/themes.jpg', alt: 'Iceberg Media - Astro Themes' },
 	},
 	header: {
-		title: 'Jumpstart your next project with a theme',
+		title: 'Find Your Perfect Astro Theme',
+		tagline: 'Browse free and premium themes. Pick one you love and we\'ll set it up, customise it, and launch it for you.',
 	},
 	featured: {
-		title: 'Featured themes',
-		tagline: 'Professional themes designed and developed by our sponsors',
-		cta: 'Discover more themes',
+		title: 'Popular themes',
+		tagline: 'Hand-picked themes ready for your next project',
+		cta: 'Browse all themes',
 		ctaHref: '/themes/1/',
 		themes: (await fetch(`${THEMES_API_URL}/api/themes/featured`).then((res) => res.json())).sort(
 			() => Math.random() - 0.5,
 		) as ThemeAndAuthor[],
 	},
-	footer: {
-		title: 'Showcase your themes',
-		description:
-			'Want to feature your theme on this page? Become a theme sponsor to showcase your premium designs and help support Astro’s open source mission.',
-		cta: 'Become a theme sponsor',
-		ctaHref: 'https://opencollective.com/astrodotbuild/contribute/theme-sponsor-86430',
-	},
 	categories: {
 		title: 'Find the theme for you',
-		tagline:
-			'Launch your next site at light speed with our catalog of free and premium Astro themes',
+		tagline: 'Launch your next site at light speed with our catalog of free and premium Astro themes',
 		cards: [
 			{
 				href: '/themes/1/?search=&categories%5B%5D=blog',
 				title: 'Blogs',
-				description:
-					'Whether you want sleek minimalism or bold colors, find the blog template for you.',
+				description: 'Whether you want sleek minimalism or bold colors, find the blog template for you.',
 				cta: 'Browse blog themes',
 				image: Blog,
 			},
 			{
 				href: '/themes/1/?search=&categories%5B%5D=ecommerce',
 				title: 'E-commerce',
-				description:
-					'Every second counts. Find an e-commerce template that loads fast and looks great.',
+				description: 'Every second counts. Find an e-commerce template that loads fast and looks great.',
 				cta: 'Browse e-commerce themes',
 				image: Ecommerce,
 			},
@@ -76,8 +68,7 @@ const pageData = {
 			{
 				href: '/themes/1/?search=&categories%5B%5D=portfolio',
 				title: 'Portfolio',
-				description:
-					'Share your art, coding projects, music, and more with an Astro portfolio theme.',
+				description: 'Share your art, coding projects, music, and more with an Astro portfolio theme.',
 				cta: 'Browse portfolio themes',
 				image: Portfolio,
 			},
@@ -91,8 +82,7 @@ const pageData = {
 			{
 				href: '/themes/1/',
 				title: '...and more!',
-				description:
-					'Discover all Astro themes and filter by your favorite technology, from Tailwind to Vue.',
+				description: 'Discover all Astro themes and filter by your favorite technology, from Tailwind to Vue.',
 				cta: 'Browse all themes',
 				image: More,
 				persist: true,
@@ -111,6 +101,8 @@ const pageData = {
 					class="mx-auto max-w-screen-lg heading-3 sm:heading-2 md:heading-1"
 					set:text={pageData.header.title}
 				/>
+				<p class="text-astro-gray-200 text-lg max-w-2xl mx-auto" set:text={pageData.header.tagline} />
+				<a href="/themes/1/" class="button button-primary">Browse All Themes</a>
 			</div>
 		</div>
 
@@ -118,7 +110,7 @@ const pageData = {
 			<section>
 				<div>
 					<h2
-						class="heading-4 sm:heading-3 md:heading-2 my-"
+						class="heading-4 sm:heading-3 md:heading-2"
 						id="featured"
 						set:text={pageData.featured.title}
 					/>
@@ -141,7 +133,7 @@ const pageData = {
 			<section class="space-y-14">
 				<div class="flex flex-col items-start">
 					<h2
-						class="bg-red-pink-gradient bg-clip-text font-semibold text-transparent"
+						class="bg-blue-purple-gradient bg-clip-text font-semibold text-transparent"
 						set:text={pageData.categories.title}
 					/>
 					<p
@@ -178,7 +170,6 @@ const pageData = {
 								<div class="relative">
 									<div class="rounded-lg xl:rounded-xl overflow-clip relative">
 										<Image src={image} alt="" class:list={[`w-full object-cover`]} />
-										{/* Overlay to dim image on hover */}
 										<div
 											class:list={[
 												'opacity-0 absolute inset-0 bg-astro-gray-700/80',
@@ -213,42 +204,7 @@ const pageData = {
 				</div>
 			</section>
 		</div>
-
-		<div class="grid-container py-28 border-astro-gray-500 border-t overflow-hidden">
-			<section
-				class="max-w-screen-md mx-auto flex flex-col sm:items-center gap-6 sm:gap-11 sm:text-center"
-			>
-				<Icon name="logos/astro" size="64" />
-				<div class="flex flex-col gap-2 sm:gap-6 md:gap-8">
-					<h2
-						class="heading-2 sm:text-5xl md:text-6xl sm:leading-tight md:leading-tight"
-						set:text={pageData.footer.title}
-					/>
-					<p
-						class="text-xl sm:text-2xl font-light text-astro-gray-200"
-						set:text={pageData.footer.description}
-					/>
-				</div>
-				<a
-					href={pageData.footer.ctaHref}
-					class="button button-white"
-					set:text={pageData.footer.cta}
-				/>
-			</section>
-
-			<div
-				class="top-[-150px] left-0 z-blur absolute bg-blue-purple-gradient opacity-30 w-[70vw] h-[800px] -translate-x-2/3 pointer-events-none mask-radial-gradient"
-			>
-			</div>
-
-			<div
-				class="top-[-150px] right-0 z-blur absolute bg-blue-green-gradient opacity-30 w-[70vw] h-[800px] translate-x-2/3 pointer-events-none mask-radial-gradient"
-			>
-			</div>
-			<div
-				class="bottom-[-500px] left-1/2 z-blur absolute bg-blue-purple-gradient opacity-50 w-[120vw] lg:w-[70vw] h-[800px] -translate-x-1/2 pointer-events-none mask-radial-gradient"
-			>
-			</div>
-		</div>
 	</div>
+
+	<ContactForm />
 </MainLayout>

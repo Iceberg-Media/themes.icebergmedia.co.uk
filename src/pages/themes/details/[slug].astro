@@ -10,6 +10,7 @@ import MainLayout from '~/layouts/MainLayout.astro';
 import ThemeCard from '../_components/ThemeCard.astro';
 import ThemeCTAs from '../_components/ThemeCTAs.astro';
 import ThemeStats from '../_components/ThemeStats.astro';
+import ContactForm from '../_components/ContactForm.astro';
 import type { ThemeAndAuthor } from '../_types/index.ts';
 
 export const prerender = false;
@@ -28,7 +29,7 @@ const relatedThemes: Array<ThemeAndAuthor> = await fetch(
 ---
 
 <MainLayout
-	title={theme.Theme.title}
+	title={`${theme.Theme.title} | Iceberg Media`}
 	description={theme.Theme.description}
 	image={{ src: theme.Theme.image, alt: theme.Theme.title }}
 >
@@ -99,6 +100,8 @@ const relatedThemes: Array<ThemeAndAuthor> = await fetch(
 			)
 		}
 	</div>
+
+	<ContactForm />
 
 	<style>
 		.grid-container :global(picture) {

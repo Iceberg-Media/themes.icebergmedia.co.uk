@@ -25,71 +25,29 @@ type SiteInfo = {
 };
 
 const siteInfo: SiteInfo = {
-	name: 'Astro',
-	title: 'Build the web you want',
+	name: 'Iceberg Media',
+	title: 'Find Your Perfect Astro Theme',
 	description:
-		'Astro builds fast content sites, powerful web applications, dynamic server APIs, and everything in-between.',
+		'Browse premium and free Astro themes. Let Iceberg Media set up, customise, and launch your site with the theme you love.',
 	image: {
 		src: '/og/social.jpg',
-		alt: 'Build the web you want',
+		alt: 'Iceberg Media - Astro Themes',
 	},
 	socialLinks: [
 		{
-			platform: 'bluesky',
-			icon: 'social/bluesky',
-			label: 'Bluesky',
-			text: 'Follow Astro on Bluesky',
-			href: 'https://bsky.app/profile/astro.build',
-		},
-		{
-			platform: 'discord',
-			href: '/chat',
-			icon: 'social/discord',
-			label: 'Discord',
-			text: 'Join the Astro community on Discord',
-		},
-		{
-			platform: 'github',
-			icon: 'social/github',
-			label: 'GitHub',
-			text: "Go to Astro's GitHub repo",
-			href: 'https://github.com/withastro/astro',
+			platform: 'twitter',
+			icon: 'social/twitter',
+			href: 'https://x.com/icebergmedia',
+			label: 'X.com',
+			text: 'Follow Iceberg Media on X',
 			showInHeader: true,
 		},
 		{
 			platform: 'linkedin',
 			icon: 'social/linkedin',
 			label: 'LinkedIn',
-			text: 'Follow Astro on LinkedIn',
-			href: 'https://www.linkedin.com/company/withastro',
-		},
-		{
-			platform: 'mastodon',
-			icon: 'social/mastodon',
-			label: 'Mastodon',
-			text: 'Follow Astro on Mastodon',
-			href: 'https://m.webtoo.ls/@astro',
-		},
-		{
-			platform: 'reddit',
-			icon: 'social/reddit',
-			label: 'Reddit',
-			text: 'Join the official Astro community on Reddit',
-			href: 'https://www.reddit.com/r/withastro/',
-		},
-		{
-			platform: 'twitter',
-			icon: 'social/twitter',
-			href: 'https://x.com/astrodotbuild',
-			label: 'X.com',
-			text: 'Follow Astro on x.com (formerly Twitter)',
-		},
-		{
-			platform: 'youtube',
-			icon: 'social/youtube',
-			href: 'https://www.youtube.com/@astrodotbuild',
-			label: 'YouTube',
-			text: 'Follow Astro on YouTube',
+			text: 'Follow Iceberg Media on LinkedIn',
+			href: 'https://www.linkedin.com/company/icebergmedia',
 		},
 	],
 };

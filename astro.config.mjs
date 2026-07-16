@@ -9,11 +9,6 @@ import astroExpressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
 import houston from './houston.theme.json';
 
-/*
- * On Cloudflare Workers Builds, WORKERS_CI_BRANCH is set to the branch name for every build,
- * including production. Only use the branch preview URL for non-production branches, otherwise
- * production would resolve to https://main.previews.astro.build (see issue #2542).
- */
 const PRODUCTION_BRANCH = 'main';
 const PREVIEW_SITE =
 	process.env.WORKERS_CI_BRANCH && process.env.WORKERS_CI_BRANCH !== PRODUCTION_BRANCH
@@ -22,7 +17,7 @@ const PREVIEW_SITE =
 
 // https://astro.build/config
 export default defineConfig({
-	site: PREVIEW_SITE || 'https://astro.build',
+	site: PREVIEW_SITE || 'https://themes.icebergmedia.co.uk',
 	prefetch: true,
 	integrations: [
 		tailwind({
@@ -49,7 +44,6 @@ export default defineConfig({
 					{ name: 'preset-default' },
 					{
 						name: 'prefixIds',
-						// Ensure IDs used in SVGs are unique to avoid clashes between inline SVGs.
 						params: { prefix: () => Math.round(Math.random() * 1_000_000_000).toString(36) },
 					},
 				],
@@ -68,9 +62,6 @@ export default defineConfig({
 		optimizeDeps: {
 			include: [
 				'astro-icon > @iconify/utils > debug',
-				// TODO: once Expressive Code is refactored/fixed, remove this workaround for
-				// Expressive Code relying on CJS dependencies like postcss not compatible
-				// with non-Node.js compatible environments like Cloudflare.
 				'astro-expressive-code/components',
 				'astro-expressive-code>hast-util-select',
 				'astro-expressive-code>rehype',

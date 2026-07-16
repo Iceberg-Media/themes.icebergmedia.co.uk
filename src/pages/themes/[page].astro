@@ -8,31 +8,27 @@ import SidebarPanel from '~/components/SidebarPanel.astro';
 import { THEMES_API_URL } from '~/helpers/constants.ts';
 import { paginate } from '~/helpers/paginate.js';
 import MainLayout from '~/layouts/MainLayout.astro';
-import SubmitTheme from './_components/SubmitTheme.astro';
 import ThemeCard from './_components/ThemeCard.astro';
+import ContactForm from './_components/ContactForm.astro';
 import type { ThemeAndAuthor, ThemeCategory, ThemeTool } from './_types/index.ts';
 
 export const prerender = false;
 
 const currentPage = Astro.params.page && Number.parseInt(Astro.params.page, 10);
 
-// invalid page number!
 if (!currentPage || Number.isNaN(currentPage)) {
 	return Astro.redirect('/404');
 }
 
-// search term from the search/filter panel
 const search = Astro.url.searchParams.get('search');
+const sort = Astro.url.searchParams.get('sort') ?? 'newest';
 
-// get a list of all supported categories & tools, this is the same list used by the zod schema
 const [categories, tools]: [ThemeCategory[], ThemeTool[]] = await fetch(
 	`${THEMES_API_URL}/api/themes/tools`,
 ).then((res) => res.json().then((data) => [data.themeCategories, data.themeTools]));
 
-// get a list of category filters applied to the request
 const selectedCategories = Astro.url.searchParams.getAll('categories[]');
 
-// massage category data for the Filter components
 const categoryFilter: FilterGroup = {
 	title: 'Categories',
 	options: categories.map((c) => ({
@@ -44,10 +40,8 @@ const categoryFilter: FilterGroup = {
 	})),
 };
 
-// get a list of tool filters applied to the request
 const selectedTools = Astro.url.searchParams.getAll('technology[]');
 
-// massage tool data for the Filter components
 const toolFilter: FilterGroup = {
 	title: 'Technology',
 	options: tools.map((t) => ({
@@ -64,10 +58,8 @@ const ThemePricing = new Map<string, string>([
 	['paid', 'Paid'],
 ]);
 
-// get a list of tool filters applied to the request
 const selectedPricing = Astro.url.searchParams.getAll('price[]');
 
-// massage tool data for the Filter components
 const priceFilter: FilterGroup = {
 	title: 'Pricing',
 	options: [...ThemePricing].map(([id, label]) => ({
@@ -83,9 +75,17 @@ const allThemes: ThemeAndAuthor[] = await fetch(
 	`${THEMES_API_URL}/api/themes?${Astro.url.searchParams}`,
 ).then((res) => res.json());
 
-// take all matching themes and create a paginated list of results
+// Sort themes client-side
+const sorted = [...allThemes].sort((a, b) => {
+	if (sort === 'oldest') {
+		return new Date(a.Theme.updatedAt).getTime() - new Date(b.Theme.updatedAt).getTime();
+	}
+	// newest (default)
+	return new Date(b.Theme.updatedAt).getTime() - new Date(a.Theme.updatedAt).getTime();
+});
+
 const paginatedResults = paginate({
-	data: allThemes.filter((theme) => !theme.Theme.featured),
+	data: sorted,
 	pageSize: 18,
 	currentPage,
 	route: '/themes/[page]',
@@ -94,7 +94,6 @@ const paginatedResults = paginate({
 
 const { page, allPages } = paginatedResults;
 
-// make sure the requested page number is valid, if not redirect to the first page of results
 if (allPages.length && !page) {
 	return Astro.redirect(allPages[0]);
 }
@@ -102,14 +101,17 @@ if (allPages.length && !page) {
 const themes = page.data;
 ---
 
-<MainLayout title="Themes" image={{ src: '/og/themes.jpg', alt: 'Explore the possibilities' }}>
+<MainLayout title="Astro Themes | Iceberg Media" description="Browse the best Astro themes. Free and premium. Let Iceberg Media set up and launch your site.">
 	<div class="relative bg-grid">
 		<div class="grid-container">
 			<h1
 				class="mx-auto pt-24 md:pt-32 lg:pt-40 w-full max-w-screen-xl text-center text-balance heading-3 sm:heading-2 lg:heading-1"
 			>
-				Jumpstart your next project with a theme
+				Find Your Perfect Astro Theme
 			</h1>
+			<p class="text-center text-astro-gray-200 text-lg max-w-2xl mx-auto -mt-4">
+				Browse free and premium themes. Pick one you love and we'll set it up, customise it, and launch it for you.
+			</p>
 		</div>
 	</div>
 
@@ -121,15 +123,31 @@ const themes = page.data;
 					groups={[categoryFilter, toolFilter, priceFilter]}
 					search={search}
 					searchPlaceholder="Search for a theme"
+					sort={sort}
 				/>
 			</SidebarPanel>
-			<SubmitTheme class="hidden lg:block" />
 		</Fragment>
 
 		{
 			themes.length > 0 ? (
 				<div class="flex flex-col items-center gap-8 md:gap-10 lg:gap-12 sm:px-4 lg:px-8 xl:px-10 pt-8 lg:pt-10 pb-10 sm:pb-12 md:pb-16 lg:pb-20">
 					<h2 class="sr-only">Themes</h2>
+
+					<!-- Sort dropdown -->
+					<div class="w-full max-w-screen-xl flex items-center justify-between">
+						<p class="text-astro-gray-200 text-sm">{allThemes.length} themes available</p>
+						<div class="flex items-center gap-2">
+							<label for="sort-select" class="text-astro-gray-200 text-sm">Sort by:</label>
+							<select
+								id="sort-select"
+								name="sort"
+								class="bg-astro-gray-600 border border-astro-gray-500 text-white text-sm rounded-lg px-3 py-2 focus:ring-astro-blue focus:border-astro-blue"
+							>
+								<option value="newest" selected={sort === 'newest'}>Newest</option>
+								<option value="oldest" selected={sort === 'oldest'}>Oldest</option>
+							</select>
+						</div>
+					</div>
 
 					<CardGridGroup>
 						<CardGrid class="sm:grid-cols-2 xl:grid-cols-3 w-full max-w-screen-xl">
@@ -154,7 +172,20 @@ const themes = page.data;
 				</div>
 			)
 		}
-
-		<SubmitTheme class="lg:hidden" />
 	</SidebarLayout>
+
+	<ContactForm />
 </MainLayout>
+
+<script>
+	// Sort dropdown handler
+	const sortSelect = document.getElementById('sort-select') as HTMLSelectElement;
+	if (sortSelect) {
+		sortSelect.addEventListener('change', () => {
+			const url = new URL(window.location.href);
+			url.searchParams.set('sort', sortSelect.value);
+			url.searchParams.delete('page');
+			window.location.href = url.toString().replace(/\/\?/, '/1/?');
+		});
+	}
+</script>

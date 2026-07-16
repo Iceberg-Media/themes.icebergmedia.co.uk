@@ -19,7 +19,6 @@ const image = theme.Theme.image;
 ---
 
 <Card isLink labelledby={theme.Theme.slug}>
-	<!-- {!!theme.data.badge && <CardBadge>{theme.data.badge}</CardBadge>} -->
 	<a class="flex h-full flex-col" href={`/themes/details/${theme.Theme.slug}/`} data-astro-prefetch>
 		<Image
 			src={image}
@@ -42,12 +41,23 @@ const image = theme.Theme.image;
 			>
 				<Avatar theme={theme} />
 
-				<Badge theme={theme.Theme.paid ? 'primary' : 'secondary'} class="z-10">
-					{theme.Theme.paid ? 'Paid' : 'Free'}
-				</Badge>
+				<div class="flex items-center gap-2">
+					<Badge theme={theme.Theme.paid ? 'primary' : 'secondary'} class="z-10">
+						{theme.Theme.paid ? 'Paid' : 'Free'}
+					</Badge>
+				</div>
 			</CardFooter>
 		</CardBody>
 	</a>
+	<div class="px-5 pb-4">
+		<a
+			href={`/themes/details/${theme.Theme.slug}/#contact-form`}
+			class="button button-primary button-sm w-full text-center"
+			onclick={`event.preventDefault(); document.getElementById('contact-theme-name').value='${theme.Theme.title.replace(/'/g, "\\'")}'; document.getElementById('contact-form').scrollIntoView({behavior:'smooth'});`}
+		>
+			Get Started with This Theme
+		</a>
+	</div>
 </Card>
 
 <style>

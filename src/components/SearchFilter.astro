@@ -22,9 +22,10 @@ export type Props = {
 	groups: FilterGroup[];
 	search?: string | null;
 	searchPlaceholder: string;
+	sort?: string;
 };
 
-const { indexRoute, groups, search = '', searchPlaceholder } = Astro.props;
+const { indexRoute, groups, search = '', searchPlaceholder, sort = 'newest' } = Astro.props;
 
 const groupsSelected = groups.filter(({ options }) =>
 	options.some(({ selected }) => selected),
@@ -57,6 +58,18 @@ const resetHref =
 				)
 			}
 		</div>
+		<hr class="my-4 border-astro-gray-500" />
+		<div>
+			<label for="sidebar-sort" class="text-sm text-astro-gray-200 mb-1.5 block">Sort by</label>
+			<select
+				id="sidebar-sort"
+				name="sort"
+				class="w-full bg-astro-gray-600 border border-astro-gray-500 text-white text-sm rounded-lg px-3 py-2 focus:ring-astro-blue focus:border-astro-blue"
+			>
+				<option value="newest" selected={sort === 'newest'}>Newest first</option>
+				<option value="oldest" selected={sort === 'oldest'}>Oldest first</option>
+			</select>
+		</div>
 		{
 			groups.map(({ title, options }) => (
 				<>
@@ -87,6 +100,7 @@ const resetHref =
 	document.querySelectorAll<HTMLFormElement>('form.searchfilter').forEach((form) => {
 		const submitBtn = form.querySelector<HTMLButtonElement>('[type=submit]');
 		const searchInput = form.querySelector<HTMLInputElement>('[type=search]');
+		const sortSelect = form.querySelector<HTMLSelectElement>('#sidebar-sort');
 
 		if (!submitBtn) {
 			return;
@@ -95,6 +109,21 @@ const resetHref =
 		if (searchInput) {
 			searchInput.addEventListener('input', () => submitBtn.classList.remove('hidden'), {
 				once: true,
+			});
+		}
+
+		if (sortSelect) {
+			sortSelect.addEventListener('change', () => {
+				const url = new URL(window.location.href);
+				url.searchParams.set('sort', sortSelect.value);
+				url.searchParams.delete('page');
+				const pathParts = url.pathname.split('/');
+				const themePageIndex = pathParts.indexOf('themes');
+				if (themePageIndex !== -1 && pathParts[themePageIndex + 1]) {
+					pathParts[themePageIndex + 1] = '1';
+				}
+				url.pathname = pathParts.join('/');
+				window.location.href = url.toString();
 			});
 		}
 

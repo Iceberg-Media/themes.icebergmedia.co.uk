@@ -4,45 +4,9 @@ import siteInfo from '~/data/site-info.js';
 import SocialLinks from './SocialLinks.astro';
 
 const nav: Nav = [
-	{ href: '/blog/', label: 'Blog', prefetch: true },
-	{
-		label: 'Resources',
-		items: [
-			{ href: '/themes/', label: 'Themes', icon: 'palette', prefetch: true },
-			{ href: '/integrations/', label: 'Integrations', icon: 'layers', prefetch: true },
-			{ href: '/showcase/', label: 'Site showcase', icon: 'browser-windows', prefetch: true },
-			{
-				href: 'https://docs.astro.build/en/tutorial/0-introduction/',
-				label: 'Tutorials',
-				icon: 'open-book',
-			},
-		],
-	},
-	{
-		label: 'Community',
-		items: [
-			{ href: '/chat/', label: 'Discord', icon: 'social/discord' },
-			{
-				href: 'https://opencollective.com/astrodotbuild',
-				label: 'Sponsors',
-				icon: 'heart',
-			},
-			{ href: 'https://shop.astro.build/', label: 'Merch', icon: 'shopping-bag' },
-		],
-	},
-	{
-		label: 'Enterprise',
-		items: [
-			{
-				href: '/agencies/',
-				label: 'Agencies',
-				icon: 'bag-briefcase',
-				badge: 'New',
-				prefetch: true,
-			},
-			{ href: '/case-studies/', label: 'Case studies', icon: 'file-alt', prefetch: true },
-		],
-	},
+	{ href: '/themes/', label: 'Browse Themes', prefetch: true },
+	{ href: 'https://icebergmedia.co.uk', label: 'Our Services' },
+	{ href: 'https://icebergmedia.co.uk', label: 'Contact Us' },
 ];
 
 interface Link {
@@ -68,49 +32,20 @@ type Nav = Array<Link | Group>;
 	{
 		nav.map((item) =>
 			'href' in item ? (
-				// Top-level link
 				<a
 					class="link"
 					href={item.href}
 					data-astro-prefetch={item.prefetch ? '' : undefined}
 					set:text={item.label}
 				/>
-			) : (
-				// Drop-down group
-				<details class="group">
-					<summary class="accordion link flex cursor-pointer list-none items-center justify-between">
-						{item.label}
-						<Icon
-							name="chevron"
-							aria-hidden="true"
-							class="inline-block size-3 rotate-0 transition-transform group-open:-rotate-180 duration-300"
-						/>
-					</summary>
-					<div class="mt-4 flex flex-col gap-4 text-xl font-light">
-						{item.items.map((link) => (
-							<a
-								href={link.href}
-								data-astro-prefetch={link.prefetch ? '' : undefined}
-								class="link flex items-center gap-4"
-							>
-								<Icon name={link.icon} size="24" /> {link.label}{' '}
-								{link.badge && (
-									<span class="text-sm leading-none font-mono py-1 px-1.5 rounded bg-astro-blue/40 border border-astro-blue">
-										{link.badge}
-									</span>
-								)}
-							</a>
-						))}
-					</div>
-				</details>
-			),
+			) : null
 		)
 	}
 
 	<div class="flex flex-wrap justify-between gap-12 gap-y-6">
 		<SocialLinks links={siteInfo.socialLinks} />
-		<a href="https://docs.astro.build/" class="button button-primary flex-grow sm:max-w-sm">
-			Read the docs
+		<a href="#contact-form" class="button button-primary flex-grow sm:max-w-sm">
+			Get a Quote
 		</a>
 	</div>
 </nav>

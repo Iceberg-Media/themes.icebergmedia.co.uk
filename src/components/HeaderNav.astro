@@ -1,6 +1,5 @@
 ---
 import siteInfo from '~/data/site-info.js';
-import AstroLogo from './AstroLogo.astro';
 import HeaderDropDown from './HeaderDropDown.astro';
 import SocialLinks from './SocialLinks.astro';
 
@@ -8,45 +7,28 @@ const socialLinks = siteInfo.socialLinks.filter((link) => link.showInHeader);
 ---
 
 <nav class="w-full flex items-center justify-between">
-	<a href="/" data-astro-prefetch title="Home" data-home-link>
-		<span class="sr-only">Astro Logo</span>
-		<AstroLogo aria-hidden="true" />
+	<a href="/" data-astro-prefetch title="Iceberg Media Themes" data-home-link class="flex items-center gap-2">
+		<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M16 2L28 26H4L16 2Z" fill="url(#iceberg-grad)" stroke="url(#iceberg-grad)" stroke-width="1"/>
+			<path d="M16 8L22 22H10L16 8Z" fill="#0a0e1a" opacity="0.4"/>
+			<defs>
+				<linearGradient id="iceberg-grad" x1="4" y1="2" x2="28" y2="26" gradientUnits="userSpaceOnUse">
+					<stop stop-color="#3b82f6"/>
+					<stop offset="1" stop-color="#06b6d4"/>
+				</linearGradient>
+			</defs>
+		</svg>
+		<span class="text-lg font-semibold text-white tracking-tight">Iceberg <span class="text-transparent bg-clip-text bg-blue-purple-gradient">Themes</span></span>
 	</a>
 
 	<div class="hidden shrink flex-row items-center gap-12 lg:flex text-base">
-		<a href="https://docs.astro.build" class="link">Documentation</a>
-		<a href="/blog/" data-astro-prefetch class="link">Blog</a>
-		<HeaderDropDown
-			label="Resources"
-			items={[
-				{ href: '/themes/', label: 'Themes', icon: 'palette', prefetch: true },
-				{ href: '/integrations/', label: 'Integrations', icon: 'layers', prefetch: true },
-				{ href: '/showcase/', label: 'Site showcase', icon: 'browser-windows', prefetch: true },
-				{
-					href: 'https://docs.astro.build/en/tutorial/0-introduction/',
-					label: 'Tutorials',
-					icon: 'open-book',
-				},
-			]}
-		/>
-		<HeaderDropDown
-			label="Community"
-			items={[
-				{ href: '/chat/', label: 'Discord', icon: 'social/discord' },
-				{ href: 'https://opencollective.com/astrodotbuild', label: 'Sponsors', icon: 'heart' },
-				{ href: 'https://shop.astro.build/', label: 'Merch', icon: 'shopping-bag' },
-			]}
-		/>
-		<HeaderDropDown
-			label="Enterprise"
-			items={[
-				{ href: '/agencies/', label: 'Agencies', icon: 'bag-briefcase', badge: 'New' },
-				{ href: '/case-studies/', label: 'Case studies', icon: 'file-alt', prefetch: true },
-			]}
-		/>
+		<a href="/themes/" data-astro-prefetch class="link">Browse Themes</a>
+		<a href="https://icebergmedia.co.uk" class="link">Our Services</a>
+		<a href="https://icebergmedia.co.uk" class="link">Contact Us</a>
 	</div>
 
 	<div class="hidden gap-4 lg:flex">
+		<a href="#contact-form" class="button button-primary button-sm">Get a Quote</a>
 		<SocialLinks links={socialLinks} />
 	</div>
 </nav>
@@ -55,6 +37,6 @@ const socialLinks = siteInfo.socialLinks.filter((link) => link.showInHeader);
 	import { getElement } from '~/helpers/dom.js';
 	getElement('[data-home-link]', HTMLAnchorElement).addEventListener('contextmenu', (event) => {
 		event.preventDefault();
-		window.location.href = '/press#assets';
+		window.location.href = '/';
 	});
 </script>

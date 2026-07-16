@@ -1,7 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components';
 import siteInfo from '~/data/site-info.js';
-import NewsLetterSignup from './NewsLetterSignup.astro';
 import SocialLinks from './SocialLinks.astro';
 
 interface Props {
@@ -22,44 +20,29 @@ type LinkGroup = {
 
 const groups: LinkGroup[] = [
 	{
-		title: 'Resources',
+		title: 'Themes',
 		links: [
-			{
-				label: 'Docs',
-				href: 'https://docs.astro.build/en/getting-started/',
-			},
-			{ label: 'Themes', href: '/themes/' },
-			{ label: 'Integrations', href: '/integrations/' },
-			{ label: 'Site showcase', href: '/showcase/' },
-			{ label: 'Starter templates', href: 'https://astro.new/' },
+			{ label: 'Free Themes', href: '/themes/1/?price%5B%5D=free' },
+			{ label: 'Premium Themes', href: '/themes/1/?price%5B%5D=paid' },
+			{ label: 'Blog Themes', href: '/themes/1/?categories%5B%5D=blog' },
+			{ label: 'Portfolio Themes', href: '/themes/1/?categories%5B%5D=portfolio' },
+			{ label: 'All Themes', href: '/themes/' },
 		],
 	},
 	{
-		title: 'About',
+		title: 'Services',
 		links: [
-			{ label: 'Blog', href: '/blog/' },
-			{ label: 'Case studies', href: '/case-studies/' },
-			{ label: 'Partner with us', href: '/partnerships/' },
-			{ label: 'Press', href: '/press/' },
-			{ label: 'Agencies', href: '/agencies/' },
+			{ label: 'Theme Setup', href: 'https://icebergmedia.co.uk' },
+			{ label: 'Custom Design', href: 'https://icebergmedia.co.uk' },
+			{ label: 'SEO Optimisation', href: 'https://icebergmedia.co.uk' },
+			{ label: 'Web Development', href: 'https://icebergmedia.co.uk' },
 		],
 	},
 	{
-		title: 'Community',
+		title: 'Company',
 		links: [
-			{
-				label: 'Contributing',
-				href: 'https://github.com/withastro/astro/blob/main/CONTRIBUTING.md',
-			},
-			{ label: 'Sponsors', href: 'https://opencollective.com/astrodotbuild' },
-			{ label: 'Wallpapers', href: '/wallpapers/' },
-			{ label: 'Swag Shop', href: 'https://shop.astro.build' },
-		],
-	},
-	{
-		title: 'Legal',
-		links: [
-			{ label: 'Telemetry', href: '/telemetry/' },
+			{ label: 'About Us', href: 'https://icebergmedia.co.uk' },
+			{ label: 'Contact', href: 'https://icebergmedia.co.uk' },
 			{ label: 'Privacy Policy', href: '/privacy/' },
 			{ label: 'Terms of Service', href: '/terms/' },
 		],
@@ -75,9 +58,25 @@ const socialLinks = siteInfo.socialLinks;
 			aria-label="Secondary"
 			class="flex flex-col lg:flex-row justify-between gap-20 py-8 md:py-12"
 		>
-			<NewsLetterSignup />
+			<div class="max-w-md">
+				<div class="flex items-center gap-2 mb-4">
+					<svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16 2L28 26H4L16 2Z" fill="url(#iceberg-grad-footer)" stroke="url(#iceberg-grad-footer)" stroke-width="1"/>
+						<path d="M16 8L22 22H10L16 8Z" fill="#0a0e1a" opacity="0.4"/>
+						<defs>
+							<linearGradient id="iceberg-grad-footer" x1="4" y1="2" x2="28" y2="26" gradientUnits="userSpaceOnUse">
+								<stop stop-color="#3b82f6"/>
+								<stop offset="1" stop-color="#06b6d4"/>
+							</linearGradient>
+						</defs>
+					</svg>
+					<span class="text-lg font-semibold text-white">Iceberg Themes</span>
+				</div>
+				<p class="text-astro-gray-300 text-sm mb-4">Browse the best Astro themes and let our team build your perfect website. Free and premium themes, professionally set up by Iceberg Media.</p>
+				<a href="https://icebergmedia.co.uk" class="text-sm text-astro-gray-200 hover:text-white transition-colors">icebergmedia.co.uk</a>
+			</div>
 
-			<div class="gap-12 sm:gap-16 lg:gap-20 flex flex-wrap xl:grid xl:grid-cols-4">
+			<div class="gap-12 sm:gap-16 lg:gap-20 flex flex-wrap xl:grid xl:grid-cols-3">
 				{
 					groups.map(({ title, links }, index) => (
 						<section class="group flex flex-col basis-32">
@@ -107,17 +106,9 @@ const socialLinks = siteInfo.socialLinks;
 			class="py-8 flex flex-col-reverse lg:flex-row items-center justify-between gap-4"
 		>
 			<div class="flex items-center gap-2 text-sm md:gap-4 md:text-base flex-wrap justify-center">
-				<Icon name="logos/astro" size="20" aria-hidden="true" />
-				<a target="_blank" class="link" href="https://github.com/withastro/astro/blob/main/LICENSE">
-					MIT License &copy; {new Date().getFullYear()}&nbsp;
-				</a>
-				<a
-					class="link"
-					target="_blank"
-					href="https://github.com/withastro/astro/graphs/contributors"
-				>
-					Astro Contributors
-				</a>
+				<span class="text-astro-gray-300">
+					&copy; {new Date().getFullYear()}&nbsp;Iceberg Media. All rights reserved.
+				</span>
 			</div>
 			<SocialLinks links={socialLinks} />
 		</nav>
