@@ -5,6 +5,7 @@ import Header from '~/components/Header.astro';
 import HeaderDrawerContent from '~/components/HeaderDrawerContent.astro';
 import HeaderNav from '~/components/HeaderNav.astro';
 import SkipLink from '~/components/SkipLink.astro';
+import WhatsAppButton from '~/components/WhatsAppButton.astro';
 import '~/styles/tailwind.css';
 
 interface Props extends HeadProps {
@@ -48,6 +49,7 @@ const { bgClass = 'bg-black', ...head } = Astro.props;
 			<slot />
 		</main>
 		<Footer {bgClass} />
+		<WhatsAppButton />
 	</body>
 </html>
 

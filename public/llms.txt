@@ -16,20 +16,20 @@ IcebergMedia.co.uk is a curated marketplace of free and premium website themes. 
 ## Browse Themes
 
 - [All Themes](/themes/) - Complete collection of free and premium themes
-- [Free Themes](/themes/1/?price%5B%5D=free) - No-cost website templates
-- [Premium Themes](/themes/1/?price%5B%5D=paid) - Professional paid themes
-- [Blog Themes](/themes/1/?categories%5B%5D=blog) - Blog and editorial templates
-- [E-commerce Themes](/themes/1/?categories%5B%5D=ecommerce) - Online store templates
-- [Landing Page Themes](/themes/1/?categories%5B%5D=landing-page) - Marketing page templates
-- [Portfolio Themes](/themes/1/?categories%5B%5D=portfolio) - Portfolio and showcase templates
-- [Documentation Themes](/themes/1/?categories%5B%5D=docs) - Documentation site templates
+- [Free Themes](/themes/free/) - No-cost website templates
+- [Premium Themes](/themes/premium/) - Professional paid themes
+- [Blog Themes](/themes/blog/) - Blog and editorial templates
+- [E-commerce Themes](/themes/ecommerce/) - Online store templates
+- [Landing Page Themes](/themes/landing-page/) - Marketing page templates
+- [Portfolio Themes](/themes/portfolio/) - Portfolio and showcase templates
+- [Documentation Themes](/themes/docs/) - Documentation site templates
 
 ## Contact
 
 - [Contact Us](/contact-us/) - Get in touch for a free quote
-- Phone: 07367 274 351
-- Email: support@IcebergMedia.co.uk
-- Address: 14 Commercial Street, Manchester, M15 4PZ, United Kingdom
+- Phone: +44 161 354 9017
+- WhatsApp: +44 7367 274 351
+- Address: 14 Commercial St, Manchester M15 4PZ, United Kingdom
 
 ## API
 
