@@ -1,14 +1,11 @@
 ---
 import siteInfo from '~/data/site-info.js';
 import HeaderDropDown from './HeaderDropDown.astro';
-import SocialLinks from './SocialLinks.astro';
-
-const socialLinks = siteInfo.socialLinks.filter((link) => link.showInHeader);
 ---
 
 <nav class="w-full flex items-center justify-between">
 	<a href="/" data-astro-prefetch title="IcebergMedia.co.uk" data-home-link class="flex items-center gap-2">
-		<img src="/iceberg-textlogo.png" alt="Iceberg Media" class="h-8 w-auto" />
+		<img src="/iceberg-textlogo.png" alt="Iceberg Media" class="h-10 w-auto" />
 	</a>
 
 	<div class="hidden shrink flex-row items-center gap-8 lg:flex text-base">
@@ -34,11 +31,11 @@ const socialLinks = siteInfo.socialLinks.filter((link) => link.showInHeader);
 				{ href: '/services/web-development/', label: 'Web Development', icon: 'palette', prefetch: true },
 			]}
 		/>
+		<a href="/contact-us/" data-astro-prefetch class="link">Contact Us</a>
 	</div>
 
 	<div class="hidden gap-4 lg:flex">
 		<a href="#contact-form" class="button button-primary button-sm">Get a Quote</a>
-		<SocialLinks links={socialLinks} />
 	</div>
 </nav>
 

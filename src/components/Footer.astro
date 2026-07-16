@@ -1,7 +1,4 @@
 ---
-import siteInfo from '~/data/site-info.js';
-import SocialLinks from './SocialLinks.astro';
-
 interface Props {
 	bgClass?: string;
 }
@@ -42,14 +39,12 @@ const groups: LinkGroup[] = [
 		title: 'Company',
 		links: [
 			{ label: 'About Us', href: 'https://IcebergMedia.co.uk' },
-			{ label: 'Contact', href: '#contact-form' },
+			{ label: 'Contact Us', href: '/contact-us/' },
 			{ label: 'Privacy Policy', href: '/privacy/' },
 			{ label: 'Terms of Service', href: '/terms/' },
 		],
 	},
 ];
-
-const socialLinks = siteInfo.socialLinks;
 ---
 
 <footer class:list={['w-full border-t border-astro-dark-100/20', bgClass]}>
@@ -60,10 +55,30 @@ const socialLinks = siteInfo.socialLinks;
 		>
 			<div class="max-w-md">
 				<div class="flex items-center gap-2 mb-4">
-					<img src="/iceberg-textlogo.png" alt="Iceberg Media" class="h-8 w-auto" />
+					<img src="/iceberg-textlogo.png" alt="Iceberg Media" class="h-10 w-auto" />
 				</div>
 				<p class="text-astro-gray-300 text-sm mb-4">Browse the best website themes and let our team build your perfect site. Free and premium themes, professionally set up by Iceberg Media.</p>
-				<a href="https://IcebergMedia.co.uk" class="text-sm text-astro-gray-200 hover:text-white transition-colors">IcebergMedia.co.uk</a>
+
+				<!-- NAP+W -->
+				<div class="space-y-2 text-sm">
+					<p class="text-astro-gray-200">
+						<strong class="text-white">Iceberg Media</strong>
+					</p>
+					<p class="text-astro-gray-300">
+						14 Commercial Street<br/>
+						Manchester, M15 4PZ<br/>
+						United Kingdom
+					</p>
+					<p class="text-astro-gray-200">
+						<a href="tel:+447367274351" class="hover:text-white transition-colors">07367 274 351</a>
+					</p>
+					<p class="text-astro-gray-200">
+						<a href="mailto:support@IcebergMedia.co.uk" class="hover:text-white transition-colors">support@IcebergMedia.co.uk</a>
+					</p>
+					<p class="text-astro-gray-200">
+						<a href="https://IcebergMedia.co.uk" class="hover:text-white transition-colors">IcebergMedia.co.uk</a>
+					</p>
+				</div>
 			</div>
 
 			<div class="gap-12 sm:gap-16 lg:gap-20 flex flex-wrap xl:grid xl:grid-cols-3">
@@ -98,7 +113,20 @@ const socialLinks = siteInfo.socialLinks;
 			<div class="flex items-center gap-2 text-sm md:gap-4 md:text-base flex-wrap justify-center">
 				<a href="https://IcebergMedia.co.uk" class="text-astro-gray-300 hover:text-white transition-colors">IcebergMedia.co.uk</a>
 			</div>
-			<SocialLinks links={socialLinks} />
+			<div class="flex items-center gap-1 flex-wrap">
+				<a rel="me" class="link flex items-center gap-2 p-3 text-white" href="https://x.com/iceberg_media">
+					<span class="sr-only">Follow us on X</span>
+					<svg width="28" height="28" viewBox="0 0 24 24" class="s-6 sm:s-7" aria-hidden="true" data-icon="social/twitter"><use href="#ai:local:social/twitter"></use></svg>
+				</a>
+				<a rel="me" class="link flex items-center gap-2 p-3 text-white" href="https://www.linkedin.com/company/iceberg-media/">
+					<span class="sr-only">Follow us on LinkedIn</span>
+					<svg width="28" height="28" viewBox="0 0 128 128" class="s-6 sm:s-7" aria-hidden="true" data-icon="social/linkedin"><use href="#ai:local:social/linkedin"></use></svg>
+				</a>
+				<a rel="me" class="link flex items-center gap-2 p-3 text-white" href="https://www.youtube.com/user/IcebergMediaUK">
+					<span class="sr-only">Watch us on YouTube</span>
+					<svg width="28" height="28" viewBox="0 0 24 24" class="s-6 sm:s-7" aria-hidden="true" data-icon="social/youtube"><use href="#ai:local:social/youtube"></use></svg>
+				</a>
+			</div>
 		</nav>
 	</div>
 </footer>

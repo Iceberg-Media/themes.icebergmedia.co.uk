@@ -1,6 +1,11 @@
-# I, for one, welcome our new robotic overlords
-
 User-agent: *
 Allow: /
 
-Sitemap: https://astro.build/sitemap-index.xml
+Sitemap: https://themes.icebergmedia.co.uk/sitemap-index.xml
+
+# AI Content Signals
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+# Well-known endpoints for agent discovery
+# /.well-known/api-catalog
+# /.well-known/agent-skills/

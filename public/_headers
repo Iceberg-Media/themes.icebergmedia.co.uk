@@ -1,3 +1,9 @@
+/*
+  Link: </.well-known/api-catalog>; rel="api-catalog"
+  Link: </.well-known/agent-skills.json>; rel="service-doc"
+  Link: </sitemap-index.xml>; rel="sitemap"
+  X-Robots-Tag: max-image-preview:large
+
 /assets/*
   cache-control: max-age=86400
   cache-control: public

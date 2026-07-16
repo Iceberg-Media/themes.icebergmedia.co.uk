@@ -1,0 +1,23 @@
+{
+  "skills": [
+    {
+      "name": "theme-browser",
+      "description": "Browse and filter website themes by category, price, and technology",
+      "url": "https://themes.icebergmedia.co.uk/themes/",
+      "methods": ["GET"]
+    },
+    {
+      "name": "contact-form",
+      "description": "Submit a theme setup inquiry to Iceberg Media",
+      "url": "https://themes-contact-form.iceberg.workers.dev",
+      "methods": ["POST"],
+      "parameters": ["name", "email", "theme", "business", "budget", "message"]
+    },
+    {
+      "name": "services",
+      "description": "Learn about Iceberg Media web services",
+      "url": "https://themes.icebergmedia.co.uk/services/",
+      "methods": ["GET"]
+    }
+  ]
+}
