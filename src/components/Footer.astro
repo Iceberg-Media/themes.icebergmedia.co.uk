@@ -32,17 +32,17 @@ const groups: LinkGroup[] = [
 	{
 		title: 'Services',
 		links: [
-			{ label: 'Theme Setup', href: 'https://icebergmedia.co.uk' },
-			{ label: 'Custom Design', href: 'https://icebergmedia.co.uk' },
-			{ label: 'SEO Optimisation', href: 'https://icebergmedia.co.uk' },
-			{ label: 'Web Development', href: 'https://icebergmedia.co.uk' },
+			{ label: 'Theme Setup', href: '/services/theme-setup/' },
+			{ label: 'Custom Design', href: '/services/custom-design/' },
+			{ label: 'SEO Optimisation', href: '/services/seo-optimisation/' },
+			{ label: 'Web Development', href: '/services/web-development/' },
 		],
 	},
 	{
 		title: 'Company',
 		links: [
-			{ label: 'About Us', href: 'https://icebergmedia.co.uk' },
-			{ label: 'Contact', href: 'https://icebergmedia.co.uk' },
+			{ label: 'About Us', href: 'https://IcebergMedia.co.uk' },
+			{ label: 'Contact', href: '#contact-form' },
 			{ label: 'Privacy Policy', href: '/privacy/' },
 			{ label: 'Terms of Service', href: '/terms/' },
 		],
@@ -72,8 +72,8 @@ const socialLinks = siteInfo.socialLinks;
 					</svg>
 					<span class="text-lg font-semibold text-white">Iceberg Themes</span>
 				</div>
-				<p class="text-astro-gray-300 text-sm mb-4">Browse the best Astro themes and let our team build your perfect website. Free and premium themes, professionally set up by Iceberg Media.</p>
-				<a href="https://icebergmedia.co.uk" class="text-sm text-astro-gray-200 hover:text-white transition-colors">icebergmedia.co.uk</a>
+				<p class="text-astro-gray-300 text-sm mb-4">Browse the best website themes and let our team build your perfect site. Free and premium themes, professionally set up by Iceberg Media.</p>
+				<a href="https://IcebergMedia.co.uk" class="text-sm text-astro-gray-200 hover:text-white transition-colors">IcebergMedia.co.uk</a>
 			</div>
 
 			<div class="gap-12 sm:gap-16 lg:gap-20 flex flex-wrap xl:grid xl:grid-cols-3">
@@ -106,9 +106,7 @@ const socialLinks = siteInfo.socialLinks;
 			class="py-8 flex flex-col-reverse lg:flex-row items-center justify-between gap-4"
 		>
 			<div class="flex items-center gap-2 text-sm md:gap-4 md:text-base flex-wrap justify-center">
-				<span class="text-astro-gray-300">
-					&copy; {new Date().getFullYear()}&nbsp;Iceberg Media. All rights reserved.
-				</span>
+				<a href="https://IcebergMedia.co.uk" class="text-astro-gray-300 hover:text-white transition-colors">IcebergMedia.co.uk</a>
 			</div>
 			<SocialLinks links={socialLinks} />
 		</nav>

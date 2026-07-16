@@ -1,0 +1,55 @@
+---
+import MainLayout from '~/layouts/MainLayout.astro';
+import ContactForm from '../themes/_components/ContactForm.astro';
+---
+
+<MainLayout
+	title="Web Development | IcebergMedia.co.uk"
+	description="Fast, modern websites built with the latest technology. From landing pages to complex web applications."
+>
+	<div class="relative bg-grid">
+		<div class="grid-container py-16 sm:py-20 md:py-24 xl:py-32">
+			<div class="relative flex flex-col items-center gap-6 text-center max-w-3xl mx-auto">
+				<h1 class="heading-3 sm:heading-2 md:heading-1">Web Development</h1>
+				<p class="text-astro-gray-200 text-lg">We build fast, modern websites using the latest technology. From simple landing pages to complex web applications — we've got you covered.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid-container py-16 md:py-24">
+		<div class="max-w-3xl mx-auto space-y-12">
+			<section>
+				<h2 class="heading-3 mb-4">What We Build</h2>
+				<ul class="space-y-3 text-astro-gray-200">
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Business websites and landing pages</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> E-commerce stores</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Blog and content platforms</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Portfolio and showcase sites</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Web applications and dashboards</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> API development and integrations</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Performance optimisation</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2 class="heading-3 mb-4">Our Tech Stack</h2>
+				<p class="text-astro-gray-200 mb-6">We use modern, proven technologies to build websites that are fast, secure, and easy to maintain.</p>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+					{['Astro', 'React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Node.js', 'Cloudflare', 'WordPress'].map((tech) => (
+						<div class="bg-astro-gray-600 border border-astro-gray-500 rounded-lg p-3 text-center">
+							<span class="text-white text-sm font-medium">{tech}</span>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section>
+				<h2 class="heading-3 mb-4">Pricing</h2>
+				<p class="text-astro-gray-200 mb-4">Web development starts from <strong class="text-white">&pound;799</strong>. Price depends on features, complexity, and integrations required.</p>
+				<p class="text-astro-gray-200">Get in touch to discuss your project and get a free quote.</p>
+			</section>
+		</div>
+	</div>
+
+	<ContactForm />
+</MainLayout>

@@ -1,0 +1,65 @@
+---
+import MainLayout from '~/layouts/MainLayout.astro';
+import ContactForm from '../themes/_components/ContactForm.astro';
+---
+
+<MainLayout
+	title="Custom Website Design | IcebergMedia.co.uk"
+	description="Bespoke website design tailored to your brand. From concept to launch, we create stunning websites that convert."
+>
+	<div class="relative bg-grid">
+		<div class="grid-container py-16 sm:py-20 md:py-24 xl:py-32">
+			<div class="relative flex flex-col items-center gap-6 text-center max-w-3xl mx-auto">
+				<h1 class="heading-3 sm:heading-2 md:heading-1">Custom Website Design</h1>
+				<p class="text-astro-gray-200 text-lg">Need something unique? We design and build custom websites from scratch, tailored to your brand and business goals.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid-container py-16 md:py-24">
+		<div class="max-w-3xl mx-auto space-y-12">
+			<section>
+				<h2 class="heading-3 mb-4">What's Included</h2>
+				<ul class="space-y-3 text-astro-gray-200">
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Bespoke design based on your brand</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Unlimited revisions until you're happy</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Responsive design for all devices</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> CMS integration for easy content updates</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> E-commerce functionality (if needed)</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Full SEO optimisation</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> 30 days post-launch support</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2 class="heading-3 mb-4">Our Process</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					<div class="bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-6">
+						<h3 class="font-semibold text-white mb-1">Discovery</h3>
+						<p class="text-astro-gray-200 text-sm">We learn about your business, goals, and audience.</p>
+					</div>
+					<div class="bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-6">
+						<h3 class="font-semibold text-white mb-1">Design</h3>
+						<p class="text-astro-gray-200 text-sm">We create mockups and iterate based on your feedback.</p>
+					</div>
+					<div class="bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-6">
+						<h3 class="font-semibold text-white mb-1">Build</h3>
+						<p class="text-astro-gray-200 text-sm">We develop your site with clean, fast code.</p>
+					</div>
+					<div class="bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-6">
+						<h3 class="font-semibold text-white mb-1">Launch</h3>
+						<p class="text-astro-gray-200 text-sm">We deploy, test, and hand over the keys.</p>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="heading-3 mb-4">Pricing</h2>
+				<p class="text-astro-gray-200 mb-4">Custom websites start from <strong class="text-white">&pound;1,499</strong>. Price depends on complexity, features, and page count.</p>
+				<p class="text-astro-gray-200">Get in touch for a free consultation and quote.</p>
+			</section>
+		</div>
+	</div>
+
+	<ContactForm />
+</MainLayout>

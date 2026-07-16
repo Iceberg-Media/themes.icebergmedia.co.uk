@@ -1,0 +1,61 @@
+---
+import MainLayout from '~/layouts/MainLayout.astro';
+import ContactForm from '../themes/_components/ContactForm.astro';
+---
+
+<MainLayout
+	title="SEO Optimisation | IcebergMedia.co.uk"
+	description="Get found on Google. Our SEO services help your website rank higher and attract more visitors."
+>
+	<div class="relative bg-grid">
+		<div class="grid-container py-16 sm:py-20 md:py-24 xl:py-32">
+			<div class="relative flex flex-col items-center gap-6 text-center max-w-3xl mx-auto">
+				<h1 class="heading-3 sm:heading-2 md:heading-1">SEO Optimisation</h1>
+				<p class="text-astro-gray-200 text-lg">Get your website ranking higher on Google. We optimise your site structure, content, and technical setup to attract more organic traffic.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid-container py-16 md:py-24">
+		<div class="max-w-3xl mx-auto space-y-12">
+			<section>
+				<h2 class="heading-3 mb-4">What's Included</h2>
+				<ul class="space-y-3 text-astro-gray-200">
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Full SEO audit of your website</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Keyword research and strategy</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> On-page optimisation (titles, meta, headings)</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Technical SEO (speed, sitemap, robots.txt)</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Google Search Console setup</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Local SEO (Google Business Profile)</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Monthly reporting and recommendations</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2 class="heading-3 mb-4">Why SEO Matters</h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<div class="bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-6 text-center">
+						<div class="text-3xl font-bold text-astro-blue mb-2">93%</div>
+						<p class="text-astro-gray-200 text-sm">of online experiences start with a search engine</p>
+					</div>
+					<div class="bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-6 text-center">
+						<div class="text-3xl font-bold text-astro-blue mb-2">75%</div>
+						<p class="text-astro-gray-200 text-sm">of users never scroll past the first page</p>
+					</div>
+					<div class="bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-6 text-center">
+						<div class="text-3xl font-bold text-astro-blue mb-2">14.6%</div>
+						<p class="text-astro-gray-200 text-sm">close rate from SEO leads vs 1.7% from outbound</p>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="heading-3 mb-4">Pricing</h2>
+				<p class="text-astro-gray-200 mb-4">SEO packages start from <strong class="text-white">&pound;499/month</strong>. Includes full audit, implementation, and monthly reporting.</p>
+				<p class="text-astro-gray-200">Get in touch for a free SEO audit of your current site.</p>
+			</section>
+		</div>
+	</div>
+
+	<ContactForm />
+</MainLayout>

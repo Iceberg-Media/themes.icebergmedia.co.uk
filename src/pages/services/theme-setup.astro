@@ -1,0 +1,64 @@
+---
+import MainLayout from '~/layouts/MainLayout.astro';
+import ContactForm from '../themes/_components/ContactForm.astro';
+---
+
+<MainLayout
+	title="Theme Setup Service | IcebergMedia.co.uk"
+	description="Professional website theme setup and customisation. We'll take your chosen theme, add your branding, and launch it for you."
+>
+	<div class="relative bg-grid">
+		<div class="grid-container py-16 sm:py-20 md:py-24 xl:py-32">
+			<div class="relative flex flex-col items-center gap-6 text-center max-w-3xl mx-auto">
+				<h1 class="heading-3 sm:heading-2 md:heading-1">Theme Setup Service</h1>
+				<p class="text-astro-gray-200 text-lg">You pick the theme, we do the rest. Our team will set up your chosen website theme with your branding, content, and configuration — ready to go live.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid-container py-16 md:py-24">
+		<div class="max-w-3xl mx-auto space-y-12">
+			<section>
+				<h2 class="heading-3 mb-4">What's Included</h2>
+				<ul class="space-y-3 text-astro-gray-200">
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Theme installation and configuration</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Your logo, colours, and branding applied</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Content population (up to 10 pages)</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Contact form setup and testing</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Mobile responsiveness check</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Basic SEO setup (meta titles, descriptions)</li>
+					<li class="flex items-start gap-3"><span class="text-astro-blue mt-1">&#10003;</span> Hosting deployment and go-live</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2 class="heading-3 mb-4">How It Works</h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<div class="bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-6">
+						<div class="text-2xl font-bold text-astro-blue mb-2">1</div>
+						<h3 class="font-semibold text-white mb-1">Pick Your Theme</h3>
+						<p class="text-astro-gray-200 text-sm">Browse our collection and choose a theme you love.</p>
+					</div>
+					<div class="bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-6">
+						<div class="text-2xl font-bold text-astro-blue mb-2">2</div>
+						<h3 class="font-semibold text-white mb-1">We Set It Up</h3>
+						<p class="text-astro-gray-200 text-sm">Our team customises it with your branding and content.</p>
+					</div>
+					<div class="bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-6">
+						<div class="text-2xl font-bold text-astro-blue mb-2">3</div>
+						<h3 class="font-semibold text-white mb-1">Go Live</h3>
+						<p class="text-astro-gray-200 text-sm">We deploy it and your site is ready for the world.</p>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="heading-3 mb-4">Pricing</h2>
+				<p class="text-astro-gray-200 mb-4">Theme setup starts from <strong class="text-white">&pound;299</strong>. Final price depends on the theme complexity and your requirements.</p>
+				<p class="text-astro-gray-200">Get in touch for a free quote — we'll get back to you within 24 hours.</p>
+			</section>
+		</div>
+	</div>
+
+	<ContactForm />
+</MainLayout>

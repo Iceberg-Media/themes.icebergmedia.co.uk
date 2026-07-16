@@ -25,13 +25,13 @@ type SiteInfo = {
 };
 
 const siteInfo: SiteInfo = {
-	name: 'Iceberg Media',
-	title: 'Find Your Perfect Astro Theme',
+	name: 'IcebergMedia.co.uk',
+	title: 'Find Your Perfect Website Theme',
 	description:
-		'Browse premium and free Astro themes. Let Iceberg Media set up, customise, and launch your site with the theme you love.',
+		'Browse premium and free website themes. Let Iceberg Media set up, customise, and launch your site with the theme you love.',
 	image: {
 		src: '/og/social.jpg',
-		alt: 'Iceberg Media - Astro Themes',
+		alt: 'IcebergMedia.co.uk - Website Themes',
 	},
 	socialLinks: [
 		{
