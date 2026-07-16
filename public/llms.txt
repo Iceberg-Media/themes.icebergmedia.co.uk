@@ -18,11 +18,11 @@ IcebergMedia.co.uk is a curated marketplace of free and premium website themes. 
 - [All Themes](/themes/) - Complete collection of free and premium themes
 - [Free Themes](/themes/free/) - No-cost website templates
 - [Premium Themes](/themes/premium/) - Professional paid themes
-- [Blog Themes](/themes/blog/) - Blog and editorial templates
-- [E-commerce Themes](/themes/ecommerce/) - Online store templates
-- [Landing Page Themes](/themes/landing-page/) - Marketing page templates
-- [Portfolio Themes](/themes/portfolio/) - Portfolio and showcase templates
-- [Documentation Themes](/themes/docs/) - Documentation site templates
+- [Blog Themes](/blog/) - Blog and editorial templates
+- [E-commerce Themes](/ecommerce/) - Online store templates
+- [Landing Page Themes](/landing-page/) - Marketing page templates
+- [Portfolio Themes](/portfolio/) - Portfolio and showcase templates
+- [Documentation Themes](/docs/) - Documentation site templates
 
 ## Contact
 
