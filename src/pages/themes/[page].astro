@@ -183,9 +183,10 @@ const themes = page.data;
 	if (sortSelect) {
 		sortSelect.addEventListener('change', () => {
 			const url = new URL(window.location.href);
+			url.pathname = '/themes/1/';
 			url.searchParams.set('sort', sortSelect.value);
 			url.searchParams.delete('page');
-			window.location.href = url.toString().replace(/\/\?/, '/1/?');
+			window.location.href = url.toString();
 		});
 	}
 </script>

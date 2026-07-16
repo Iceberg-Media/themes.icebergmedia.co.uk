@@ -115,14 +115,9 @@ const resetHref =
 		if (sortSelect) {
 			sortSelect.addEventListener('change', () => {
 				const url = new URL(window.location.href);
+				url.pathname = '/themes/1/';
 				url.searchParams.set('sort', sortSelect.value);
 				url.searchParams.delete('page');
-				const pathParts = url.pathname.split('/');
-				const themePageIndex = pathParts.indexOf('themes');
-				if (themePageIndex !== -1 && pathParts[themePageIndex + 1]) {
-					pathParts[themePageIndex + 1] = '1';
-				}
-				url.pathname = pathParts.join('/');
 				window.location.href = url.toString();
 			});
 		}
