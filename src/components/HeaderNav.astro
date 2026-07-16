@@ -3,14 +3,13 @@ import HeaderDropDown from './HeaderDropDown.astro';
 ---
 
 <nav class="w-full flex items-center justify-between gap-4">
-	<a href="https://icebergmedia.co.uk/" title="Iceberg Media - Manchester SEO Company" data-home-link class="flex items-center gap-4 shrink-0">
+	<a href="https://icebergmedia.co.uk/" title="Iceberg Media" class="flex items-center gap-4 shrink-0">
 		<img src="/iceberg-textlogo.png" alt="Iceberg Media" class="h-12 w-auto" />
 	</a>
 
 	<div class="hidden shrink flex-row items-center gap-6 lg:flex text-base">
-		<a href="/themes/" data-astro-prefetch class="link">Browse Themes</a>
 		<HeaderDropDown
-			label="Categories"
+			label="Free Website Themes"
 			items={[
 				{ href: '/themes/free/', label: 'Free Themes', icon: 'palette', prefetch: true },
 				{ href: '/themes/premium/', label: 'Premium Themes', icon: 'palette', prefetch: true },
@@ -21,9 +20,8 @@ import HeaderDropDown from './HeaderDropDown.astro';
 				{ href: '/themes/docs/', label: 'Documentation', icon: 'palette', prefetch: true },
 			]}
 		/>
-		<a href="/services/" data-astro-prefetch class="link">Our Services</a>
 		<HeaderDropDown
-			label="What We Do"
+			label="Optimizations"
 			items={[
 				{ href: '/services/theme-setup/', label: 'Theme Setup', icon: 'palette', prefetch: true },
 				{ href: '/services/custom-design/', label: 'Custom Design', icon: 'palette', prefetch: true },
@@ -31,7 +29,7 @@ import HeaderDropDown from './HeaderDropDown.astro';
 				{ href: '/services/web-development/', label: 'Web Development', icon: 'palette', prefetch: true },
 			]}
 		/>
-		<a href="/contact-us/" data-astro-prefetch class="link">Contact Us</a>
+		<a href="/contact-us/" data-astro-prefetch class="link">Contact</a>
 	</div>
 
 	<div class="hidden gap-3 lg:flex shrink-0">

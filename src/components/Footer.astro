@@ -19,20 +19,17 @@ const groups: LinkGroup[] = [
 	{
 		title: 'Themes',
 		links: [
-			{ label: 'All Themes', href: '/themes/' },
 			{ label: 'Free Themes', href: '/themes/free/' },
 			{ label: 'Premium Themes', href: '/themes/premium/' },
 			{ label: 'Blog Themes', href: '/themes/blog/' },
 			{ label: 'E-commerce Themes', href: '/themes/ecommerce/' },
 			{ label: 'Landing Page Themes', href: '/themes/landing-page/' },
 			{ label: 'Portfolio Themes', href: '/themes/portfolio/' },
-			{ label: 'Documentation Themes', href: '/themes/docs/' },
 		],
 	},
 	{
-		title: 'Services',
+		title: 'Optimizations',
 		links: [
-			{ label: 'All Services', href: '/services/' },
 			{ label: 'Theme Setup', href: '/services/theme-setup/' },
 			{ label: 'Custom Design', href: '/services/custom-design/' },
 			{ label: 'SEO Optimisation', href: '/services/seo-optimisation/' },
@@ -42,7 +39,7 @@ const groups: LinkGroup[] = [
 	{
 		title: 'Company',
 		links: [
-			{ label: 'Contact Us', href: '/contact-us/' },
+			{ label: 'Contact', href: '/contact-us/' },
 			{ label: 'About Iceberg Media', href: 'https://icebergmedia.co.uk/' },
 			{ label: 'Privacy Policy', href: '/privacy/' },
 			{ label: 'Terms of Service', href: '/terms/' },
@@ -53,16 +50,16 @@ const groups: LinkGroup[] = [
 
 <footer class:list={['w-full border-t border-astro-dark-100/20', bgClass]}>
 	<div class="w-full max-w-screen-2xl mx-auto px-4 sm:px-8">
-		<nav
-			aria-label="Secondary"
-			class="flex flex-col lg:flex-row justify-between gap-20 py-8 md:py-12"
-		>
-			<div class="max-w-md">
+		<!-- Tagline spanning full width -->
+		<div class="py-6 border-b border-astro-gray-500">
+			<p class="text-astro-gray-300 text-sm text-center lg:text-left">Find your next website themes and let our team optimize your perfect fast website. Free and premium themes, professionally set up by Iceberg Media optimized for SEO and Ai Agents, ready to be found.</p>
+		</div>
+
+		<nav aria-label="Secondary" class="flex flex-col lg:flex-row justify-between gap-20 py-8 md:py-12">
+			<div class="shrink-0">
 				<a href="https://icebergmedia.co.uk/" class="flex items-center gap-2 mb-4">
 					<img src="/iceberg-textlogo.png" alt="Iceberg Media" class="h-12 w-auto" />
 				</a>
-				<p class="text-astro-gray-300 text-sm mb-6">Browse the best website themes and let our team build your perfect site. Free and premium themes, professionally set up by Iceberg Media.</p>
-
 				<div class="space-y-2 text-sm">
 					<p class="text-astro-gray-200 font-semibold text-white">Iceberg Media</p>
 					<p class="text-astro-gray-300">14 Commercial Street<br/>Manchester, M15 4PZ<br/>United Kingdom</p>
@@ -72,42 +69,32 @@ const groups: LinkGroup[] = [
 			</div>
 
 			<div class="gap-12 sm:gap-16 lg:gap-20 flex flex-wrap xl:grid xl:grid-cols-3">
-				{
-					groups.map(({ title, links }, index) => (
-						<section class="group flex flex-col basis-32">
-							<h2 id={`footerHeading${index}`} class="mb-4 label-base leading-none text-white font-semibold">
-								{title}
-							</h2>
-							<ul aria-labelledby={`footerHeading${index}`} class="flex flex-col gap-2">
-								{links.map(({ href, label }) => (
-									<li>
-										<a href={href} class="whitespace-nowrap link flex gap-2 items-center">
-											{label}
-										</a>
-									</li>
-								))}
-							</ul>
-						</section>
-					))
-				}
+				{groups.map(({ title, links }, index) => (
+					<section class="group flex flex-col basis-32">
+						<h2 id={`footerHeading${index}`} class="mb-4 label-base leading-none text-white font-semibold">{title}</h2>
+						<ul aria-labelledby={`footerHeading${index}`} class="flex flex-col gap-2">
+							{links.map(({ href, label }) => (
+								<li><a href={href} class="whitespace-nowrap link flex gap-2 items-center">{label}</a></li>
+							))}
+						</ul>
+					</section>
+				))}
 			</div>
 		</nav>
 		<hr class="border-astro-gray-500" />
 		<nav aria-label="Legal" class="py-8 flex flex-col-reverse lg:flex-row items-center justify-between gap-4">
-			<div class="flex items-center gap-2 text-sm md:gap-4 md:text-base flex-wrap justify-center">
-				<a href="https://icebergmedia.co.uk/" class="text-astro-gray-300 hover:text-white transition-colors">IcebergMedia.co.uk</a>
-			</div>
+			<a href="https://icebergmedia.co.uk/" class="text-astro-gray-300 hover:text-white transition-colors text-sm">IcebergMedia.co.uk</a>
 			<div class="flex items-center gap-1 flex-wrap">
 				<a rel="me" class="link flex items-center gap-2 p-3 text-white" href="https://x.com/iceberg_media">
-					<span class="sr-only">Follow us on X</span>
+					<span class="sr-only">X</span>
 					<svg width="28" height="28" viewBox="0 0 24 24" class="s-6 sm:s-7" aria-hidden="true" data-icon="social/twitter"><use href="#ai:local:social/twitter"></use></svg>
 				</a>
 				<a rel="me" class="link flex items-center gap-2 p-3 text-white" href="https://www.linkedin.com/company/iceberg-media/">
-					<span class="sr-only">Follow us on LinkedIn</span>
+					<span class="sr-only">LinkedIn</span>
 					<svg width="28" height="28" viewBox="0 0 128 128" class="s-6 sm:s-7" aria-hidden="true" data-icon="social/linkedin"><use href="#ai:local:social/linkedin"></use></svg>
 				</a>
 				<a rel="me" class="link flex items-center gap-2 p-3 text-white" href="https://www.youtube.com/user/IcebergMediaUK">
-					<span class="sr-only">Watch us on YouTube</span>
+					<span class="sr-only">YouTube</span>
 					<svg width="28" height="28" viewBox="0 0 24 24" class="s-6 sm:s-7" aria-hidden="true" data-icon="social/youtube"><use href="#ai:local:social/youtube"></use></svg>
 				</a>
 			</div>
