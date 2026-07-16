@@ -50,9 +50,6 @@ export default defineConfig({
 			},
 		}),
 		mdx({ optimize: true }),
-		sitemap({
-			filter: (page) => !page.includes('/showcase/') && !page.includes('/agencies/') && !page.includes('/case-studies/') && !page.includes('/press/') && !page.includes('/partnerships/') && !page.includes('/wallpapers/') && !page.includes('/telemetry/') && !page.includes('/newsletter/') && !page.includes('/integrations/') && !page.includes('/on/') && !page.includes('/themes/details/') && !page.includes('/themes/author/') && !page.includes('/themes/submit/') && !page.includes('/themes/[page]') && !page.includes('/404'),
-		}),
 	],
 	image: {
 		domains: ['v1.screenshot.11ty.dev', 'storage.googleapis.com', 'avatars.githubusercontent.com'],

@@ -1,0 +1,41 @@
+---
+export const prerender = false;
+
+const API_URL = 'https://portal.astro.build';
+const themes = await fetch(`${API_URL}/api/themes`).then((res) => res.json());
+
+const staticPages = [
+	'https://themes.icebergmedia.co.uk/',
+	'https://themes.icebergmedia.co.uk/themes/',
+	'https://themes.icebergmedia.co.uk/themes/free/',
+	'https://themes.icebergmedia.co.uk/themes/premium/',
+	'https://themes.icebergmedia.co.uk/ecommerce/',
+	'https://themes.icebergmedia.co.uk/landing-page/',
+	'https://themes.icebergmedia.co.uk/portfolio/',
+	'https://themes.icebergmedia.co.uk/docs/',
+	'https://themes.icebergmedia.co.uk/free-website-themes/',
+	'https://themes.icebergmedia.co.uk/optimizations/',
+	'https://themes.icebergmedia.co.uk/services/',
+	'https://themes.icebergmedia.co.uk/services/theme-setup/',
+	'https://themes.icebergmedia.co.uk/services/custom-design/',
+	'https://themes.icebergmedia.co.uk/services/seo-optimisation/',
+	'https://themes.icebergmedia.co.uk/services/web-development/',
+	'https://themes.icebergmedia.co.uk/contact-us/',
+	'https://themes.icebergmedia.co.uk/privacy/',
+	'https://themes.icebergmedia.co.uk/terms/',
+];
+
+const themePages = themes.map(
+	(t: any) => `https://themes.icebergmedia.co.uk/themes/details/${t.Theme.slug}/`,
+);
+
+const allPages = [...staticPages, ...themePages];
+
+Astro.response.headers.set('Content-Type', 'application/xml');
+Astro.response.headers.set('Cache-Control', 'public, max-age=3600');
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{allPages.map((url: string) => <url><loc>{url}</loc></url>)}
+</urlset>
