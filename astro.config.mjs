@@ -76,7 +76,7 @@ export default defineConfig({
 		},
 	},
 	adapter: cloudflare({
-		imageService: 'cloudflare-binding',
+		imageService: 'passthrough',
 	}),
 	session: { driver: sessionDrivers.lruCache() },
 	experimental: {
