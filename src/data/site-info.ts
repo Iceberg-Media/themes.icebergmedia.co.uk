@@ -20,12 +20,12 @@ type SiteInfo = {
 
 const siteInfo: SiteInfo = {
 	name: 'IcebergMedia.co.uk',
-	title: 'Find Your Perfect Website Theme',
+	title: 'Free & Premium Website Themes | Professional Theme Setup UK',
 	description:
-		'Browse premium and free website themes. Let Iceberg Media set up, customise, and launch your site with the theme you love.',
+		'Browse 200+ free and premium website themes for blogs, portfolios, e-commerce, and landing pages. Professional theme setup and customisation by Iceberg Media. Manchester, UK.',
 	image: {
 		src: '/og/social.jpg',
-		alt: 'IcebergMedia.co.uk - Website Themes',
+		alt: 'IcebergMedia.co.uk - Free and Premium Website Themes UK',
 	},
 	socialLinks: [
 		{
@@ -34,7 +34,6 @@ const siteInfo: SiteInfo = {
 			href: 'https://x.com/iceberg_media',
 			label: 'X.com',
 			text: 'Follow Iceberg Media on X',
-			showInHeader: true,
 		},
 		{
 			platform: 'linkedin',

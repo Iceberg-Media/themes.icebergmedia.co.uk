@@ -1,13 +1,24 @@
 /*
-  Link: </.well-known/api-catalog>; rel="api-catalog"
-  Link: </.well-known/agent-skills.json>; rel="service-doc"
-  Link: </sitemap-index.xml>; rel="sitemap"
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/json"
+  Link: </.well-known/agent-skills.json>; rel="service-doc"; type="application/json"
+  Link: </llms.txt>; rel="help"; type="text/plain"
+  Link: </sitemap-index.xml>; rel="sitemap"; type="application/xml"
   X-Robots-Tag: max-image-preview:large
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
 
-/assets/*
-  cache-control: max-age=86400
-  cache-control: public
+/themes/*
+  Link: </themes/>; rel="collection"; type="text/html"
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/json"
+
+/services/*
+  Link: </contact-us/>; rel="related"; type="text/html"
+
 /_astro/*
   cache-control: max-age=31536000
   cache-control: immutable
+  cache-control: public
+
+/assets/*
+  cache-control: max-age=86400
   cache-control: public

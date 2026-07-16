@@ -1,0 +1,44 @@
+# IcebergMedia.co.uk - Website Themes Marketplace
+
+> Browse free and premium website themes. Professional theme setup, custom design, SEO, and web development services by Iceberg Media. Based in Manchester, UK.
+
+## About
+
+IcebergMedia.co.uk is a curated marketplace of free and premium website themes. We help businesses find, customise, and launch their perfect website. Based in Manchester, we serve clients across the UK.
+
+## Services
+
+- [Theme Setup](/services/theme-setup/) - Professional theme installation and customisation from £299
+- [Custom Design](/services/custom-design/) - Bespoke website design from £1,499
+- [SEO Optimisation](/services/seo-optimisation/) - Get found on Google from £499/month
+- [Web Development](/services/web-development/) - Fast, modern websites from £799
+
+## Browse Themes
+
+- [All Themes](/themes/) - Complete collection of free and premium themes
+- [Free Themes](/themes/1/?price%5B%5D=free) - No-cost website templates
+- [Premium Themes](/themes/1/?price%5B%5D=paid) - Professional paid themes
+- [Blog Themes](/themes/1/?categories%5B%5D=blog) - Blog and editorial templates
+- [E-commerce Themes](/themes/1/?categories%5B%5D=ecommerce) - Online store templates
+- [Landing Page Themes](/themes/1/?categories%5B%5D=landing-page) - Marketing page templates
+- [Portfolio Themes](/themes/1/?categories%5B%5D=portfolio) - Portfolio and showcase templates
+- [Documentation Themes](/themes/1/?categories%5B%5D=docs) - Documentation site templates
+
+## Contact
+
+- [Contact Us](/contact-us/) - Get in touch for a free quote
+- Phone: 07367 274 351
+- Email: support@IcebergMedia.co.uk
+- Address: 14 Commercial Street, Manchester, M15 4PZ, United Kingdom
+
+## API
+
+- [Contact Form API](https://themes-contact-form.iceberg.workers.dev) - POST endpoint for theme inquiries
+- [API Catalog](/.well-known/api-catalog) - Machine-readable API catalog
+- [Agent Skills](/.well-known/agent-skills.json) - Agent capabilities
+
+## Social
+
+- [X/Twitter](https://x.com/iceberg_media)
+- [LinkedIn](https://www.linkedin.com/company/iceberg-media/)
+- [YouTube](https://www.youtube.com/user/IcebergMediaUK)

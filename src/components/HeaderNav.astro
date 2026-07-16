@@ -1,14 +1,14 @@
 ---
-import siteInfo from '~/data/site-info.js';
 import HeaderDropDown from './HeaderDropDown.astro';
 ---
 
-<nav class="w-full flex items-center justify-between">
-	<a href="/" data-astro-prefetch title="IcebergMedia.co.uk" data-home-link class="flex items-center gap-2">
-		<img src="/iceberg-textlogo.png" alt="Iceberg Media" class="h-10 w-auto" />
+<nav class="w-full flex items-center justify-between gap-4">
+	<a href="/" data-astro-prefetch title="IcebergMedia.co.uk - Website Themes" data-home-link class="flex items-center gap-4 shrink-0">
+		<img src="/iceberg-textlogo.png" alt="Iceberg Media" class="h-12 w-auto" />
+		<span class="hidden xl:block text-astro-gray-300 text-sm leading-tight max-w-xs border-l border-astro-gray-500 pl-4">Browse the best website themes and let our team build your perfect site.</span>
 	</a>
 
-	<div class="hidden shrink flex-row items-center gap-8 lg:flex text-base">
+	<div class="hidden shrink flex-row items-center gap-6 lg:flex text-base">
 		<HeaderDropDown
 			label="Browse Themes"
 			items={[
@@ -34,7 +34,7 @@ import HeaderDropDown from './HeaderDropDown.astro';
 		<a href="/contact-us/" data-astro-prefetch class="link">Contact Us</a>
 	</div>
 
-	<div class="hidden gap-4 lg:flex">
+	<div class="hidden gap-3 lg:flex shrink-0">
 		<a href="#contact-form" class="button button-primary button-sm">Get a Quote</a>
 	</div>
 </nav>
