@@ -31,11 +31,18 @@ const themePages = themes.map(
 
 const allPages = [...staticPages, ...themePages];
 
-Astro.response.headers.set('Content-Type', 'application/xml');
-Astro.response.headers.set('Cache-Control', 'public, max-age=3600');
+const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${allPages.map((url: string) => `  <url><loc>${url}</loc></url>`).join('\n')}
+</urlset>`;
+
+return new Response(xml, {
+	status: 200,
+	headers: {
+		'Content-Type': 'application/xml; charset=utf-8',
+		'Cache-Control': 'public, max-age=3600',
+	},
+});
 ---
 
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{allPages.map((url: string) => <url><loc>{url}</loc></url>)}
-</urlset>
+<!-- This component returns a Response object directly, no HTML output -->
