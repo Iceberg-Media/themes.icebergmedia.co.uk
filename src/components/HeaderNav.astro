@@ -3,27 +3,27 @@ import HeaderDropDown from './HeaderDropDown.astro';
 ---
 
 <nav class="w-full flex items-center justify-between gap-4">
-	<a href="/" data-astro-prefetch title="IcebergMedia.co.uk - Website Themes" data-home-link class="flex items-center gap-4 shrink-0">
+	<a href="https://icebergmedia.co.uk/" title="Iceberg Media - Manchester SEO Company" data-home-link class="flex items-center gap-4 shrink-0">
 		<img src="/iceberg-textlogo.png" alt="Iceberg Media" class="h-12 w-auto" />
-		<span class="hidden xl:block text-astro-gray-300 text-sm leading-tight max-w-xs border-l border-astro-gray-500 pl-4">Browse the best website themes and let our team build your perfect site.</span>
 	</a>
 
 	<div class="hidden shrink flex-row items-center gap-6 lg:flex text-base">
+		<a href="/themes/" data-astro-prefetch class="link">Browse Themes</a>
 		<HeaderDropDown
-			label="Browse Themes"
+			label="Categories"
 			items={[
-				{ href: '/themes/1/?price%5B%5D=free', label: 'Free Themes', icon: 'palette', prefetch: true },
-				{ href: '/themes/1/?price%5B%5D=paid', label: 'Premium Themes', icon: 'palette', prefetch: true },
-				{ href: '/themes/1/?categories%5B%5D=blog', label: 'Blog Themes', icon: 'palette', prefetch: true },
-				{ href: '/themes/1/?categories%5B%5D=ecommerce', label: 'E-commerce', icon: 'palette', prefetch: true },
-				{ href: '/themes/1/?categories%5B%5D=landing-page', label: 'Landing Pages', icon: 'palette', prefetch: true },
-				{ href: '/themes/1/?categories%5B%5D=portfolio', label: 'Portfolio', icon: 'palette', prefetch: true },
-				{ href: '/themes/1/?categories%5B%5D=docs', label: 'Documentation', icon: 'palette', prefetch: true },
-				{ href: '/themes/', label: 'All Themes', icon: 'palette', prefetch: true },
+				{ href: '/themes/free/', label: 'Free Themes', icon: 'palette', prefetch: true },
+				{ href: '/themes/premium/', label: 'Premium Themes', icon: 'palette', prefetch: true },
+				{ href: '/themes/blog/', label: 'Blog Themes', icon: 'palette', prefetch: true },
+				{ href: '/themes/ecommerce/', label: 'E-commerce', icon: 'palette', prefetch: true },
+				{ href: '/themes/landing-page/', label: 'Landing Pages', icon: 'palette', prefetch: true },
+				{ href: '/themes/portfolio/', label: 'Portfolio', icon: 'palette', prefetch: true },
+				{ href: '/themes/docs/', label: 'Documentation', icon: 'palette', prefetch: true },
 			]}
 		/>
+		<a href="/services/" data-astro-prefetch class="link">Our Services</a>
 		<HeaderDropDown
-			label="Our Services"
+			label="What We Do"
 			items={[
 				{ href: '/services/theme-setup/', label: 'Theme Setup', icon: 'palette', prefetch: true },
 				{ href: '/services/custom-design/', label: 'Custom Design', icon: 'palette', prefetch: true },

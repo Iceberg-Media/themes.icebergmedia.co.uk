@@ -1,0 +1,50 @@
+---
+import MainLayout from '~/layouts/MainLayout.astro';
+import ContactForm from '../themes/_components/ContactForm.astro';
+---
+
+<MainLayout
+	title="Web Design & SEO Services | Manchester UK"
+	description="Professional web services from Iceberg Media. Theme setup from £299, custom web design from £1,499, SEO from £499/month, web development from £799. Manchester-based, serving the UK."
+>
+	<div class="relative bg-grid">
+		<div class="grid-container py-16 sm:py-20 md:py-24 xl:py-32">
+			<div class="relative flex flex-col items-center gap-6 text-center max-w-3xl mx-auto">
+				<h1 class="heading-3 sm:heading-2 md:heading-1">Our Services</h1>
+				<p class="text-astro-gray-200 text-lg">From theme setup to custom web design and SEO — we help UK businesses get online and get found.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid-container py-16 md:py-24">
+		<div class="max-w-4xl mx-auto">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<a href="/services/theme-setup/" class="group bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-8 hover:border-astro-blue transition-colors">
+					<h2 class="heading-3 mb-3 group-hover:text-astro-blue transition-colors">Theme Setup</h2>
+					<p class="text-astro-gray-200 mb-4">You pick the theme, we install it, add your branding, configure hosting, and launch your site.</p>
+					<span class="text-astro-blue font-medium">From £299 &rarr;</span>
+				</a>
+
+				<a href="/services/custom-design/" class="group bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-8 hover:border-astro-blue transition-colors">
+					<h2 class="heading-3 mb-3 group-hover:text-astro-blue transition-colors">Custom Design</h2>
+					<p class="text-astro-gray-200 mb-4">Bespoke website design tailored to your brand. From concept to launch, we create stunning websites that convert.</p>
+					<span class="text-astro-blue font-medium">From £1,499 &rarr;</span>
+				</a>
+
+				<a href="/services/seo-optimisation/" class="group bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-8 hover:border-astro-blue transition-colors">
+					<h2 class="heading-3 mb-3 group-hover:text-astro-blue transition-colors">SEO Optimisation</h2>
+					<p class="text-astro-gray-200 mb-4">Get found on Google. Keyword research, on-page optimisation, technical SEO, and local SEO for UK businesses.</p>
+					<span class="text-astro-blue font-medium">From £499/month &rarr;</span>
+				</a>
+
+				<a href="/services/web-development/" class="group bg-astro-gray-600 border border-astro-gray-500 rounded-xl p-8 hover:border-astro-blue transition-colors">
+					<h2 class="heading-3 mb-3 group-hover:text-astro-blue transition-colors">Web Development</h2>
+					<p class="text-astro-gray-200 mb-4">Fast, modern websites built with the latest technology. From landing pages to complex web applications.</p>
+					<span class="text-astro-blue font-medium">From £799 &rarr;</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<ContactForm />
+</MainLayout>

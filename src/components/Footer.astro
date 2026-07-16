@@ -19,16 +19,20 @@ const groups: LinkGroup[] = [
 	{
 		title: 'Themes',
 		links: [
-			{ label: 'Free Themes', href: '/themes/1/?price%5B%5D=free' },
-			{ label: 'Premium Themes', href: '/themes/1/?price%5B%5D=paid' },
-			{ label: 'Blog Themes', href: '/themes/1/?categories%5B%5D=blog' },
-			{ label: 'Portfolio Themes', href: '/themes/1/?categories%5B%5D=portfolio' },
 			{ label: 'All Themes', href: '/themes/' },
+			{ label: 'Free Themes', href: '/themes/free/' },
+			{ label: 'Premium Themes', href: '/themes/premium/' },
+			{ label: 'Blog Themes', href: '/themes/blog/' },
+			{ label: 'E-commerce Themes', href: '/themes/ecommerce/' },
+			{ label: 'Landing Page Themes', href: '/themes/landing-page/' },
+			{ label: 'Portfolio Themes', href: '/themes/portfolio/' },
+			{ label: 'Documentation Themes', href: '/themes/docs/' },
 		],
 	},
 	{
 		title: 'Services',
 		links: [
+			{ label: 'All Services', href: '/services/' },
 			{ label: 'Theme Setup', href: '/services/theme-setup/' },
 			{ label: 'Custom Design', href: '/services/custom-design/' },
 			{ label: 'SEO Optimisation', href: '/services/seo-optimisation/' },
@@ -38,8 +42,8 @@ const groups: LinkGroup[] = [
 	{
 		title: 'Company',
 		links: [
-			{ label: 'About Us', href: 'https://IcebergMedia.co.uk' },
 			{ label: 'Contact Us', href: '/contact-us/' },
+			{ label: 'About Iceberg Media', href: 'https://icebergmedia.co.uk/' },
 			{ label: 'Privacy Policy', href: '/privacy/' },
 			{ label: 'Terms of Service', href: '/terms/' },
 		],
@@ -54,30 +58,16 @@ const groups: LinkGroup[] = [
 			class="flex flex-col lg:flex-row justify-between gap-20 py-8 md:py-12"
 		>
 			<div class="max-w-md">
-				<div class="flex items-center gap-2 mb-4">
+				<a href="https://icebergmedia.co.uk/" class="flex items-center gap-2 mb-4">
 					<img src="/iceberg-textlogo.png" alt="Iceberg Media" class="h-12 w-auto" />
-				</div>
-				<p class="text-astro-gray-300 text-sm mb-4">Browse the best website themes and let our team build your perfect site. Free and premium themes, professionally set up by Iceberg Media.</p>
+				</a>
+				<p class="text-astro-gray-300 text-sm mb-6">Browse the best website themes and let our team build your perfect site. Free and premium themes, professionally set up by Iceberg Media.</p>
 
-				<!-- NAP+W -->
 				<div class="space-y-2 text-sm">
-					<p class="text-astro-gray-200">
-						<strong class="text-white">Iceberg Media</strong>
-					</p>
-					<p class="text-astro-gray-300">
-						14 Commercial Street<br/>
-						Manchester, M15 4PZ<br/>
-						United Kingdom
-					</p>
-					<p class="text-astro-gray-200">
-						<a href="tel:+447367274351" class="hover:text-white transition-colors">07367 274 351</a>
-					</p>
-					<p class="text-astro-gray-200">
-						<a href="mailto:support@IcebergMedia.co.uk" class="hover:text-white transition-colors">support@IcebergMedia.co.uk</a>
-					</p>
-					<p class="text-astro-gray-200">
-						<a href="https://IcebergMedia.co.uk" class="hover:text-white transition-colors">IcebergMedia.co.uk</a>
-					</p>
+					<p class="text-astro-gray-200 font-semibold text-white">Iceberg Media</p>
+					<p class="text-astro-gray-300">14 Commercial Street<br/>Manchester, M15 4PZ<br/>United Kingdom</p>
+					<p class="text-astro-gray-200"><a href="tel:+447367274351" class="hover:text-white transition-colors">07367 274 351</a></p>
+					<p class="text-astro-gray-200"><a href="https://icebergmedia.co.uk/" class="hover:text-white transition-colors">IcebergMedia.co.uk</a></p>
 				</div>
 			</div>
 
@@ -85,10 +75,7 @@ const groups: LinkGroup[] = [
 				{
 					groups.map(({ title, links }, index) => (
 						<section class="group flex flex-col basis-32">
-							<h2
-								id={`footerHeading${index}`}
-								class="mb-4 label-base leading-none text-white font-semibold"
-							>
+							<h2 id={`footerHeading${index}`} class="mb-4 label-base leading-none text-white font-semibold">
 								{title}
 							</h2>
 							<ul aria-labelledby={`footerHeading${index}`} class="flex flex-col gap-2">
@@ -106,12 +93,9 @@ const groups: LinkGroup[] = [
 			</div>
 		</nav>
 		<hr class="border-astro-gray-500" />
-		<nav
-			aria-label="Legal"
-			class="py-8 flex flex-col-reverse lg:flex-row items-center justify-between gap-4"
-		>
+		<nav aria-label="Legal" class="py-8 flex flex-col-reverse lg:flex-row items-center justify-between gap-4">
 			<div class="flex items-center gap-2 text-sm md:gap-4 md:text-base flex-wrap justify-center">
-				<a href="https://IcebergMedia.co.uk" class="text-astro-gray-300 hover:text-white transition-colors">IcebergMedia.co.uk</a>
+				<a href="https://icebergmedia.co.uk/" class="text-astro-gray-300 hover:text-white transition-colors">IcebergMedia.co.uk</a>
 			</div>
 			<div class="flex items-center gap-1 flex-wrap">
 				<a rel="me" class="link flex items-center gap-2 p-3 text-white" href="https://x.com/iceberg_media">

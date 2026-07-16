@@ -1,0 +1,89 @@
+---
+import CardGrid from '~/components/CardGrid.astro';
+import CardGridGroup from '~/components/CardGridGroup.astro';
+import SearchFilter, { type FilterGroup } from '~/components/SearchFilter.astro';
+import SidebarLayout from '~/components/SidebarLayout.astro';
+import SidebarPanel from '~/components/SidebarPanel.astro';
+import { THEMES_API_URL } from '~/helpers/constants.ts';
+import MainLayout from '~/layouts/MainLayout.astro';
+import ThemeCard from '../_components/ThemeCard.astro';
+import ContactForm from '../_components/ContactForm.astro';
+import type { ThemeAndAuthor, ThemeCategory, ThemeTool } from '../_types/index.ts';
+
+export const prerender = false;
+
+const search = Astro.url.searchParams.get('search');
+
+const [categories, tools]: [ThemeCategory[], ThemeTool[]] = await fetch(
+	`${THEMES_API_URL}/api/themes/tools`,
+).then((res) => res.json().then((data) => [data.themeCategories, data.themeTools]));
+
+const categoryFilter: FilterGroup = {
+	title: 'Categories',
+	options: categories.map((c) => ({
+		id: c.value,
+		name: 'categories[]',
+		value: c.value,
+		label: c.name,
+		selected: false,
+	})),
+};
+
+const toolFilter: FilterGroup = {
+	title: 'Technology',
+	options: tools.map((t) => ({
+		id: t.value,
+		name: 'technology[]',
+		value: t.value,
+		label: t.name,
+		selected: false,
+	})),
+};
+
+const priceFilter: FilterGroup = {
+	title: 'Pricing',
+	options: [
+		{ id: 'free', name: 'price[]', value: 'free', label: 'Free', selected: false },
+		{ id: 'paid', name: 'price[]', value: 'paid', label: 'Paid', selected: true },
+	],
+};
+
+const allThemes: ThemeAndAuthor[] = await fetch(
+	`${THEMES_API_URL}/api/themes?price[]=paid`,
+).then((res) => res.json());
+
+const themes = [...allThemes]
+	.sort((a, b) => new Date(b.Theme.updatedAt).getTime() - new Date(a.Theme.updatedAt).getTime());
+---
+
+<MainLayout title="Premium Website Themes | Professional Paid Templates" description="Browse premium website themes designed for businesses. Professional-quality paid templates for blogs, e-commerce, portfolios, and landing pages. Setup service available.">
+	<div class="relative bg-grid">
+		<div class="grid-container">
+			<h1 class="mx-auto pt-24 md:pt-32 lg:pt-40 w-full max-w-screen-xl text-center text-balance heading-3 sm:heading-2 lg:heading-1">
+				Premium Website Themes
+			</h1>
+			<p class="text-center text-astro-gray-200 text-lg max-w-2xl mx-auto -mt-4">
+				Professional-quality paid themes designed for businesses. Let us set up and customise your chosen theme.
+			</p>
+		</div>
+	</div>
+
+	<SidebarLayout>
+		<Fragment slot="sidebar">
+			<SidebarPanel>
+				<SearchFilter indexRoute="/themes/premium/" groups={[categoryFilter, toolFilter, priceFilter]} search={search} searchPlaceholder="Search premium themes" />
+			</SidebarPanel>
+		</Fragment>
+
+		<div class="flex flex-col items-center gap-8 md:gap-10 lg:gap-12 sm:px-4 lg:px-8 xl:px-10 pt-8 lg:pt-10 pb-10 sm:pb-12 md:pb-16 lg:pb-20">
+			<p class="text-astro-gray-200 text-sm w-full max-w-screen-xl">{themes.length} premium themes available</p>
+			<CardGridGroup>
+				<CardGrid class="sm:grid-cols-2 xl:grid-cols-3 w-full max-w-screen-xl">
+					{themes.map((theme) => <ThemeCard theme={theme} />)}
+				</CardGrid>
+			</CardGridGroup>
+		</div>
+	</SidebarLayout>
+
+	<ContactForm />
+</MainLayout>

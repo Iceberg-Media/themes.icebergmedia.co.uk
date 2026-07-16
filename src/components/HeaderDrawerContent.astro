@@ -4,21 +4,22 @@ import siteInfo from '~/data/site-info.js';
 import SocialLinks from './SocialLinks.astro';
 
 const nav: Nav = [
+	{ href: '/themes/', label: 'Browse Themes', prefetch: true },
 	{
-		label: 'Browse Themes',
+		label: 'Categories',
 		items: [
-			{ href: '/themes/1/?price%5B%5D=free', label: 'Free Themes', icon: 'palette', prefetch: true },
-			{ href: '/themes/1/?price%5B%5D=paid', label: 'Premium Themes', icon: 'palette', prefetch: true },
-			{ href: '/themes/1/?categories%5B%5D=blog', label: 'Blog Themes', icon: 'palette', prefetch: true },
-			{ href: '/themes/1/?categories%5B%5D=ecommerce', label: 'E-commerce', icon: 'palette', prefetch: true },
-			{ href: '/themes/1/?categories%5B%5D=landing-page', label: 'Landing Pages', icon: 'palette', prefetch: true },
-			{ href: '/themes/1/?categories%5B%5D=portfolio', label: 'Portfolio', icon: 'palette', prefetch: true },
-			{ href: '/themes/1/?categories%5B%5D=docs', label: 'Documentation', icon: 'palette', prefetch: true },
-			{ href: '/themes/', label: 'All Themes', icon: 'palette', prefetch: true },
+			{ href: '/themes/free/', label: 'Free Themes', icon: 'palette', prefetch: true },
+			{ href: '/themes/premium/', label: 'Premium Themes', icon: 'palette', prefetch: true },
+			{ href: '/themes/blog/', label: 'Blog Themes', icon: 'palette', prefetch: true },
+			{ href: '/themes/ecommerce/', label: 'E-commerce', icon: 'palette', prefetch: true },
+			{ href: '/themes/landing-page/', label: 'Landing Pages', icon: 'palette', prefetch: true },
+			{ href: '/themes/portfolio/', label: 'Portfolio', icon: 'palette', prefetch: true },
+			{ href: '/themes/docs/', label: 'Documentation', icon: 'palette', prefetch: true },
 		],
 	},
+	{ href: '/services/', label: 'Our Services', prefetch: true },
 	{
-		label: 'Our Services',
+		label: 'What We Do',
 		items: [
 			{ href: '/services/theme-setup/', label: 'Theme Setup', icon: 'palette', prefetch: true },
 			{ href: '/services/custom-design/', label: 'Custom Design', icon: 'palette', prefetch: true },
@@ -26,6 +27,7 @@ const nav: Nav = [
 			{ href: '/services/web-development/', label: 'Web Development', icon: 'palette', prefetch: true },
 		],
 	},
+	{ href: '/contact-us/', label: 'Contact Us', prefetch: true },
 ];
 
 interface Link {
@@ -74,12 +76,7 @@ type Nav = Array<Link | Group>;
 								data-astro-prefetch={link.prefetch ? '' : undefined}
 								class="link flex items-center gap-4"
 							>
-								<Icon name={link.icon} size="24" /> {link.label}{' '}
-								{link.badge && (
-									<span class="text-sm leading-none font-mono py-1 px-1.5 rounded bg-astro-blue/40 border border-astro-blue">
-										{link.badge}
-									</span>
-								)}
+								<Icon name={link.icon} size="24" /> {link.label}
 							</a>
 						))}
 					</div>
