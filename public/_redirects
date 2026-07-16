@@ -59,3 +59,5 @@
 # DB
 /db                     https://docs.astro.build/en/guides/astro-db/
 /db/                    https://docs.astro.build/en/guides/astro-db/
+/blog/* https://updates.icebergmedia.co.uk/:splat 301
+/blog/ https://updates.icebergmedia.co.uk/ 301
