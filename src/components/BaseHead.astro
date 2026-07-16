@@ -41,6 +41,18 @@ const resolvedImage = {
 <!-- Fathom - beautiful, simple website analytics -->
 <script is:inline src="https://cdn.usefathom.com/script.js" data-site="EZBHTSIG" defer></script>
 
+<!-- Google Analytics 4 (Iceberg Media) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPK26T7GHY"></script>
+<script is:inline>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QPK26T7GHY', {
+		send_page_view: true,
+		linker: { domains: ['icebergmedia.co.uk', 'themes.icebergmedia.co.uk', 'updates.icebergmedia.co.uk'] }
+	});
+</script>
+
 <!-- Font preloads, omit MDIO to improve initial load -->
 <link rel="preload" href="/fonts/Obviously.woff2?v=1" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/Inter.woff2?v=1" as="font" type="font/woff2" crossorigin />
@@ -58,6 +70,9 @@ const resolvedImage = {
 
 <!-- WebMCP for AI Agent Discovery -->
 <script type="module" src="/_astro/webmcp.js" defer></script>
+
+<!-- GA4 Conversion Tracking -->
+<script type="module" src="/_astro/analytics.js" defer></script>
 
 <SEO
 	name={siteInfo.name}
