@@ -1,15 +1,9 @@
 export type SocialLink = {
-	/** Longer descriptive label, e.g. `"Join the Astro community on Discord"` */
 	text: string;
-	/** Short label with the name of the platform, e.g. `"Discord"`*/
 	label: string;
-	/** Icon name for use with `astro-icon`, e.g. `"social/discord"`. */
 	icon: string;
-	/** URL for our profile on the external platform. */
 	href: string;
-	/** Platform ID, e.g. `"discord"`. Used for `astro.build/on/PLATFORM` redirects. */
 	platform: string;
-	/** Whether this platform should be linked in the site header */
 	showInHeader?: boolean;
 };
 
@@ -37,7 +31,7 @@ const siteInfo: SiteInfo = {
 		{
 			platform: 'twitter',
 			icon: 'social/twitter',
-			href: 'https://x.com/icebergmedia',
+			href: 'https://x.com/iceberg_media',
 			label: 'X.com',
 			text: 'Follow Iceberg Media on X',
 			showInHeader: true,
@@ -47,7 +41,14 @@ const siteInfo: SiteInfo = {
 			icon: 'social/linkedin',
 			label: 'LinkedIn',
 			text: 'Follow Iceberg Media on LinkedIn',
-			href: 'https://www.linkedin.com/company/icebergmedia',
+			href: 'https://www.linkedin.com/company/iceberg-media/',
+		},
+		{
+			platform: 'youtube',
+			icon: 'social/youtube',
+			label: 'YouTube',
+			text: 'Follow Iceberg Media on YouTube',
+			href: 'https://www.youtube.com/user/IcebergMediaUK',
 		},
 	],
 };

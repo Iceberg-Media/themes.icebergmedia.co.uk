@@ -8,23 +8,32 @@ const socialLinks = siteInfo.socialLinks.filter((link) => link.showInHeader);
 
 <nav class="w-full flex items-center justify-between">
 	<a href="/" data-astro-prefetch title="IcebergMedia.co.uk" data-home-link class="flex items-center gap-2">
-		<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M16 2L28 26H4L16 2Z" fill="url(#iceberg-grad)" stroke="url(#iceberg-grad)" stroke-width="1"/>
-			<path d="M16 8L22 22H10L16 8Z" fill="#0a0e1a" opacity="0.4"/>
-			<defs>
-				<linearGradient id="iceberg-grad" x1="4" y1="2" x2="28" y2="26" gradientUnits="userSpaceOnUse">
-					<stop stop-color="#3b82f6"/>
-					<stop offset="1" stop-color="#06b6d4"/>
-				</linearGradient>
-			</defs>
-		</svg>
-		<span class="text-lg font-semibold text-white tracking-tight">Iceberg <span class="text-transparent bg-clip-text bg-blue-purple-gradient">Themes</span></span>
+		<img src="/iceberg-textlogo.png" alt="Iceberg Media" class="h-8 w-auto" />
 	</a>
 
-	<div class="hidden shrink flex-row items-center gap-12 lg:flex text-base">
-		<a href="/themes/" data-astro-prefetch class="link">Browse Themes</a>
-		<a href="https://IcebergMedia.co.uk" class="link">Our Services</a>
-		<a href="https://IcebergMedia.co.uk" class="link">Contact Us</a>
+	<div class="hidden shrink flex-row items-center gap-8 lg:flex text-base">
+		<HeaderDropDown
+			label="Browse Themes"
+			items={[
+				{ href: '/themes/1/?price%5B%5D=free', label: 'Free Themes', icon: 'palette', prefetch: true },
+				{ href: '/themes/1/?price%5B%5D=paid', label: 'Premium Themes', icon: 'palette', prefetch: true },
+				{ href: '/themes/1/?categories%5B%5D=blog', label: 'Blog Themes', icon: 'palette', prefetch: true },
+				{ href: '/themes/1/?categories%5B%5D=ecommerce', label: 'E-commerce', icon: 'palette', prefetch: true },
+				{ href: '/themes/1/?categories%5B%5D=landing-page', label: 'Landing Pages', icon: 'palette', prefetch: true },
+				{ href: '/themes/1/?categories%5B%5D=portfolio', label: 'Portfolio', icon: 'palette', prefetch: true },
+				{ href: '/themes/1/?categories%5B%5D=docs', label: 'Documentation', icon: 'palette', prefetch: true },
+				{ href: '/themes/', label: 'All Themes', icon: 'palette', prefetch: true },
+			]}
+		/>
+		<HeaderDropDown
+			label="Our Services"
+			items={[
+				{ href: '/services/theme-setup/', label: 'Theme Setup', icon: 'palette', prefetch: true },
+				{ href: '/services/custom-design/', label: 'Custom Design', icon: 'palette', prefetch: true },
+				{ href: '/services/seo-optimisation/', label: 'SEO Optimisation', icon: 'palette', prefetch: true },
+				{ href: '/services/web-development/', label: 'Web Development', icon: 'palette', prefetch: true },
+			]}
+		/>
 	</div>
 
 	<div class="hidden gap-4 lg:flex">

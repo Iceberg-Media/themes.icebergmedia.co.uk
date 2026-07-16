@@ -4,9 +4,28 @@ import siteInfo from '~/data/site-info.js';
 import SocialLinks from './SocialLinks.astro';
 
 const nav: Nav = [
-	{ href: '/themes/', label: 'Browse Themes', prefetch: true },
-	{ href: 'https://icebergmedia.co.uk', label: 'Our Services' },
-	{ href: 'https://icebergmedia.co.uk', label: 'Contact Us' },
+	{
+		label: 'Browse Themes',
+		items: [
+			{ href: '/themes/1/?price%5B%5D=free', label: 'Free Themes', icon: 'palette', prefetch: true },
+			{ href: '/themes/1/?price%5B%5D=paid', label: 'Premium Themes', icon: 'palette', prefetch: true },
+			{ href: '/themes/1/?categories%5B%5D=blog', label: 'Blog Themes', icon: 'palette', prefetch: true },
+			{ href: '/themes/1/?categories%5B%5D=ecommerce', label: 'E-commerce', icon: 'palette', prefetch: true },
+			{ href: '/themes/1/?categories%5B%5D=landing-page', label: 'Landing Pages', icon: 'palette', prefetch: true },
+			{ href: '/themes/1/?categories%5B%5D=portfolio', label: 'Portfolio', icon: 'palette', prefetch: true },
+			{ href: '/themes/1/?categories%5B%5D=docs', label: 'Documentation', icon: 'palette', prefetch: true },
+			{ href: '/themes/', label: 'All Themes', icon: 'palette', prefetch: true },
+		],
+	},
+	{
+		label: 'Our Services',
+		items: [
+			{ href: '/services/theme-setup/', label: 'Theme Setup', icon: 'palette', prefetch: true },
+			{ href: '/services/custom-design/', label: 'Custom Design', icon: 'palette', prefetch: true },
+			{ href: '/services/seo-optimisation/', label: 'SEO Optimisation', icon: 'palette', prefetch: true },
+			{ href: '/services/web-development/', label: 'Web Development', icon: 'palette', prefetch: true },
+		],
+	},
 ];
 
 interface Link {
@@ -38,7 +57,34 @@ type Nav = Array<Link | Group>;
 					data-astro-prefetch={item.prefetch ? '' : undefined}
 					set:text={item.label}
 				/>
-			) : null
+			) : (
+				<details class="group">
+					<summary class="accordion link flex cursor-pointer list-none items-center justify-between">
+						{item.label}
+						<Icon
+							name="chevron"
+							aria-hidden="true"
+							class="inline-block size-3 rotate-0 transition-transform group-open:-rotate-180 duration-300"
+						/>
+					</summary>
+					<div class="mt-4 flex flex-col gap-4 text-xl font-light">
+						{item.items.map((link) => (
+							<a
+								href={link.href}
+								data-astro-prefetch={link.prefetch ? '' : undefined}
+								class="link flex items-center gap-4"
+							>
+								<Icon name={link.icon} size="24" /> {link.label}{' '}
+								{link.badge && (
+									<span class="text-sm leading-none font-mono py-1 px-1.5 rounded bg-astro-blue/40 border border-astro-blue">
+										{link.badge}
+									</span>
+								)}
+							</a>
+						))}
+					</div>
+				</details>
+			),
 		)
 	}
 
