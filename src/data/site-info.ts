@@ -19,7 +19,7 @@ type SiteInfo = {
 };
 
 const siteInfo: SiteInfo = {
-	name: 'IcebergMedia.co.uk',
+	name: 'Iceberg Media',
 	title: 'Free & Premium Website Themes | Professional Theme Setup UK',
 	description:
 		'Browse 200+ free and premium website themes for blogs, portfolios, e-commerce, and landing pages. Professional theme setup and customisation by Iceberg Media. Manchester, UK.',
