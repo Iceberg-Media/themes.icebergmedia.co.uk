@@ -17,18 +17,24 @@ export const prerender = false;
 
 Astro.response.headers.set('CDN-Cache-Control', 'public, max-age=60, stale-while-revalidate=86400');
 
-// Fetch newest free themes first, then paid
+// Fetch all themes and pick the best-looking ones for the homepage
 const allThemes: ThemeAndAuthor[] = await fetch(
 	`${THEMES_API_URL}/api/themes`,
 ).then((res) => res.json());
 
-const popularThemes = [...allThemes]
-	.sort((a, b) => {
-		// Free first, then by newest
-		if (a.Theme.paid !== b.Theme.paid) return a.Theme.paid ? 1 : -1;
-		return new Date(b.Theme.updatedAt).getTime() - new Date(a.Theme.updatedAt).getTime();
-	})
-	.slice(0, 6);
+// Curated list of good-looking business themes
+const featuredSlugs = [
+	'monarque',
+	'tally-saas-product-astro-theme',
+	'axis-studio',
+	'constellation',
+	'blast-blue-astro-theme',
+	'astro-keel',
+];
+
+const popularThemes = featuredSlugs
+	.map((slug) => allThemes.find((t) => t.Theme.slug === slug))
+	.filter(Boolean) as ThemeAndAuthor[];
 
 const pageData = {
 	seo: {
@@ -106,7 +112,7 @@ const pageData = {
 			</div>
 		</div>
 
-		<div class="grid-container pt-10 pb-28 border-astro-gray-500 border-t overflow-hidden">
+		<div class="grid-container pt-6 pb-12 border-astro-gray-500 border-t overflow-hidden">
 			<section>
 				<div>
 					<h2
@@ -124,7 +130,7 @@ const pageData = {
 			</section>
 		</div>
 
-		<div class="grid-container py-28 border-astro-gray-500 border-t overflow-hidden">
+		<div class="grid-container py-12 border-astro-gray-500 border-t overflow-hidden">
 			<section class="space-y-14">
 				<div class="flex flex-col items-start">
 					<h2
