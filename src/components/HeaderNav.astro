@@ -10,6 +10,7 @@ import HeaderDropDown from './HeaderDropDown.astro';
 	<div class="hidden shrink flex-row items-center gap-6 lg:flex text-base">
 		<HeaderDropDown
 			label="Free Website Themes"
+			labelHref="/free-website-themes/"
 			items={[
 				{ href: '/themes/free/', label: 'Free Themes', icon: 'palette', prefetch: true },
 				{ href: '/themes/premium/', label: 'Premium Themes', icon: 'palette', prefetch: true },
@@ -22,6 +23,7 @@ import HeaderDropDown from './HeaderDropDown.astro';
 		/>
 		<HeaderDropDown
 			label="Optimizations"
+			labelHref="/optimizations/"
 			items={[
 				{ href: '/services/theme-setup/', label: 'Theme Setup', icon: 'palette', prefetch: true },
 				{ href: '/services/custom-design/', label: 'Custom Design', icon: 'palette', prefetch: true },
@@ -29,6 +31,7 @@ import HeaderDropDown from './HeaderDropDown.astro';
 				{ href: '/services/web-development/', label: 'Web Development', icon: 'palette', prefetch: true },
 			]}
 		/>
+		<a href="https://updates.icebergmedia.co.uk/" class="link">Updates</a>
 		<a href="/contact-us/" data-astro-prefetch class="link">Contact</a>
 	</div>
 

@@ -6,6 +6,7 @@ import SocialLinks from './SocialLinks.astro';
 const nav: Nav = [
 	{
 		label: 'Free Website Themes',
+		href: '/free-website-themes/',
 		items: [
 			{ href: '/themes/free/', label: 'Free Themes', icon: 'palette', prefetch: true },
 			{ href: '/themes/premium/', label: 'Premium Themes', icon: 'palette', prefetch: true },
@@ -18,6 +19,7 @@ const nav: Nav = [
 	},
 	{
 		label: 'Optimizations',
+		href: '/optimizations/',
 		items: [
 			{ href: '/services/theme-setup/', label: 'Theme Setup', icon: 'palette', prefetch: true },
 			{ href: '/services/custom-design/', label: 'Custom Design', icon: 'palette', prefetch: true },
@@ -25,6 +27,7 @@ const nav: Nav = [
 			{ href: '/services/web-development/', label: 'Web Development', icon: 'palette', prefetch: true },
 		],
 	},
+	{ href: 'https://updates.icebergmedia.co.uk/', label: 'Updates' },
 	{ href: '/contact-us/', label: 'Contact', prefetch: true },
 ];
 
@@ -39,6 +42,7 @@ interface GroupLink extends Link {
 }
 interface Group {
 	label: string;
+	href?: string;
 	items: GroupLink[];
 }
 type Nav = Array<Link | Group>;
@@ -46,16 +50,18 @@ type Nav = Array<Link | Group>;
 
 <nav aria-label="Primary" class="text-xl flex flex-col divide-y divide-astro-gray-500 pb-12 text-left [&>*]:p-6">
 	{nav.map((item) =>
-		'href' in item ? (
-			<a class="link" href={item.href} data-astro-prefetch={item.prefetch ? '' : undefined} set:text={item.label} />
+		'href' in item && !('items' in item) ? (
+			<a class="link" href={item.href} data-astro-prefetch={(item as Link).prefetch ? '' : undefined} set:text={item.label} />
 		) : (
 			<details class="group">
 				<summary class="accordion link flex cursor-pointer list-none items-center justify-between">
-					{item.label}
+					{(item as Group).href ? (
+						<a href={(item as Group).href} class="hover:text-white">{item.label}</a>
+					) : item.label}
 					<Icon name="chevron" aria-hidden="true" class="inline-block size-3 rotate-0 transition-transform group-open:-rotate-180 duration-300" />
 				</summary>
 				<div class="mt-4 flex flex-col gap-4 text-xl font-light">
-					{item.items.map((link) => (
+					{(item as Group).items.map((link) => (
 						<a href={link.href} data-astro-prefetch={link.prefetch ? '' : undefined} class="link flex items-center gap-4">
 							<Icon name={link.icon} size="24" /> {link.label}
 						</a>
