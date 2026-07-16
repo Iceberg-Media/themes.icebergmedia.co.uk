@@ -1,21 +1,40 @@
 {
-  "api-catalog": {
-    "title": "IcebergMedia.co.uk API Catalog",
-    "description": "Browse website themes and contact Iceberg Media for setup services",
-    "apis": [
-      {
-        "name": "Theme Contact Form",
-        "description": "Submit inquiries about theme setup and services",
-        "url": "https://themes-contact-form.iceberg.workers.dev",
-        "method": "POST",
-        "contentType": "application/x-www-form-urlencoded"
-      },
-      {
-        "name": "Themes Listing",
-        "description": "Browse available website themes",
-        "url": "https://themes.icebergmedia.co.uk/themes/",
-        "method": "GET"
-      }
-    ]
-  }
+  "$schema": "https://www.rfc-editor.org/rfc/rfc9264",
+  "linkset": [
+    {
+      "anchor": "https://themes.icebergmedia.co.uk/",
+      "service-desc": [
+        {
+          "href": "https://themes.icebergmedia.co.uk/.well-known/api-catalog",
+          "type": "application/linkset+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://themes.icebergmedia.co.uk/llms.txt",
+          "type": "text/plain"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://themes.icebergmedia.co.uk/"
+        }
+      ]
+    },
+    {
+      "anchor": "https://themes-contact-form.iceberg.workers.dev",
+      "service-desc": [
+        {
+          "href": "https://themes.icebergmedia.co.uk/.well-known/api-catalog",
+          "type": "application/linkset+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://themes.icebergmedia.co.uk/contact-us/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
 }

@@ -49,7 +49,15 @@ const resolvedImage = {
 <Favicon />
 <link rel="mask-icon" href="/favicon.png" color="#3b82f6" />
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
+
+<!-- Agent Discovery Links -->
+<link rel="api-catalog" href="/.well-known/api-catalog" type="application/linkset+json" />
+<link rel="service-doc" href="/.well-known/agent-skills.json" type="application/json" />
+<link rel="service-desc" href="/.well-known/mcp-server-card.json" type="application/json" />
+<link rel="help" href="/llms.txt" type="text/plain" />
+
+<!-- WebMCP for AI Agent Discovery -->
+<script type="module" src="/_astro/webmcp.js" defer></script>
 
 <SEO
 	name={siteInfo.name}

@@ -1,23 +1,40 @@
 {
+  "$schema": "https://agentskills.io/schemas/v0.2.0/index.json",
   "skills": [
     {
       "name": "theme-browser",
+      "type": "page",
       "description": "Browse and filter website themes by category, price, and technology",
       "url": "https://themes.icebergmedia.co.uk/themes/",
-      "methods": ["GET"]
+      "sha256": ""
     },
     {
       "name": "contact-form",
+      "type": "api",
       "description": "Submit a theme setup inquiry to Iceberg Media",
       "url": "https://themes-contact-form.iceberg.workers.dev",
-      "methods": ["POST"],
-      "parameters": ["name", "email", "theme", "business", "budget", "message"]
+      "sha256": ""
     },
     {
       "name": "services",
+      "type": "page",
       "description": "Learn about Iceberg Media web services",
-      "url": "https://themes.icebergmedia.co.uk/services/",
-      "methods": ["GET"]
+      "url": "https://themes.icebergmedia.co.uk/optimizations/",
+      "sha256": ""
+    },
+    {
+      "name": "free-themes",
+      "type": "page",
+      "description": "Browse free website themes",
+      "url": "https://themes.icebergmedia.co.uk/themes/free/",
+      "sha256": ""
+    },
+    {
+      "name": "premium-themes",
+      "type": "page",
+      "description": "Browse premium website themes",
+      "url": "https://themes.icebergmedia.co.uk/themes/premium/",
+      "sha256": ""
     }
   ]
 }

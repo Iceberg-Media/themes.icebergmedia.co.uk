@@ -1,0 +1,44 @@
+{
+  "serverInfo": {
+    "name": "iceberg-themes",
+    "version": "1.0.0"
+  },
+  "transport": {
+    "type": "http",
+    "url": "https://themes.icebergmedia.co.uk/"
+  },
+  "capabilities": {
+    "tools": {},
+    "resources": {}
+  },
+  "tools": [
+    {
+      "name": "browse_themes",
+      "description": "Browse available website themes by category",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": ["free", "premium", "blog", "ecommerce", "landing-page", "portfolio", "docs"],
+            "description": "Theme category to browse"
+          }
+        }
+      }
+    },
+    {
+      "name": "contact_form",
+      "description": "Submit a theme setup inquiry",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string", "description": "Your name"},
+          "email": {"type": "string", "description": "Your email address"},
+          "theme": {"type": "string", "description": "Which theme you want"},
+          "message": {"type": "string", "description": "Project details"}
+        },
+        "required": ["name", "email", "theme"]
+      }
+    }
+  ]
+}
